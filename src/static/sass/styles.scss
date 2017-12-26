@@ -1,0 +1,161 @@
+
+@font-face {
+  font-family: "Icons8";
+  src: url("../fonts/Icons8_2f808b8be74d38219fb84a19159be546.eot");
+  src: url("../fonts/Icons8_2f808b8be74d38219fb84a19159be546.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Icons8_2f808b8be74d38219fb84a19159be546.woff2") format("woff2"),
+       url("../fonts/Icons8_2f808b8be74d38219fb84a19159be546.woff") format("woff"),
+       url("../fonts/Icons8_2f808b8be74d38219fb84a19159be546.ttf") format("truetype"),
+       url("../fonts/Icons8_2f808b8be74d38219fb84a19159be546.svg#Icons8") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Icons8";
+    src: url("../fonts/Icons8_2f808b8be74d38219fb84a19159be546.svg#Icons8") format("svg");
+  }
+}
+
+[data-icons8]:before { content: attr(data-icons8); }
+
+.icons8, [data-icons8]:before,
+.icons8-github:before,
+.icons8-instagram:before,
+.icons8-linkedin:before {
+  display: inline-block;
+  font-family: "Icons8";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icons8-github:before { content: "\f100"; }
+.icons8-instagram:before { content: "\f101"; }
+.icons8-linkedin:before { content: "\f102"; }
+
+$black-color: #312E2F;
+$blue-color: #1B72F9;
+$white-color: #FFFFFF;
+
+body {
+    background-color: $white-color;
+    font-size: 1.0rem;
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.4;
+    margin: 0;
+    min-height: 100vh;
+    min-width: 320px;
+    overflow-x: hidden;
+    padding: 0;
+    vertical-align: baseline;
+    word-wrap: break-word;
+}
+
+a {
+    text-decoration: none;
+    color: $black-color;
+    transition: color 0.25s ease;
+
+    &:hover { color: $blue-color; cursor: pointer; }
+}
+
+.wrapper { padding: 5vh 2rem 10vh 2rem; }
+
+@media screen and (min-width: 720px) {
+    .wrapper { padding: 5vh 10rem 10vh 10rem; }
+}
+
+@media screen and (min-width: 960px) {
+    .wrapper { padding: 5vh 15rem 10vh 15rem; }
+}
+
+@media screen and (min-width: 1200px) {
+    .wrapper { padding: 5vh 20rem 10vh 20rem; }
+}
+
+@media screen and (min-width: 1440px) {
+    .wrapper { padding: 5vh 25rem 10vh 25rem; }
+}
+
+@media screen and (min-width: 1680px) {
+    .wrapper { padding: 5vh 35rem 10vh 35rem; }
+}
+
+@media screen and (min-width: 1920px) {
+    .wrapper { padding: 5vh 40rem 10vh 40rem; }
+}
+
+.intro { margin-bottom: 5px; }
+
+.section { padding: 4px 10px 4px 10px; }
+
+.description {
+    text-align: right;
+    p { span { font-weight: 700; } }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li { span { font-weight: 700; } }
+    }
+}
+
+.name {
+    font-size: 2rem;
+    overflow-wrap: break-word;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.projects {
+    text-align: left;
+    p { span { font-weight: 700; } }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li { span { font-weight: 700; } }
+    }
+}
+
+.social-links {
+    text-align: center;
+    font-size: 50px;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0rem;
+
+            a {
+                border-radius: 5rem;
+                display: flex;
+                justify-content: center;
+                width: 1.5em;
+                height: 1.5em;
+
+                i { display: block; }
+            }
+        }
+    }
+}
+
+.title { font-size: 1.1rem; margin-top: 20px; margin-bottom: -35px; }

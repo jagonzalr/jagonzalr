@@ -1,0 +1,42 @@
+{
+  "name": "jagonzalr",
+  "version": "0.0.3",
+  "description": "My personal website",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp serve",
+    "serve": "gulp serve:dist",
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jagonzalr/jagonzalr.git"
+  },
+  "keywords": [
+    "HTML",
+    "CSS",
+    "Gulp"
+  ],
+  "author": "Jose Antonio Gonzalez Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jagonzalr/jagonzalr/issues"
+  },
+  "homepage": "https://github.com/jagonzalr/jagonzalr#readme",
+  "devDependencies": {
+    "browser-sync": "^2.21.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-cache": "^1.0.1",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-inject": "^4.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-serviceworker": "0.0.3",
+    "gulp-sourcemaps": "^2.6.2",
+    "minimist": "^1.2.0"
+  }
+}
