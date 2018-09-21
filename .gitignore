@@ -60,4 +60,5 @@ typings/
 .tmp/
 .DS_Store
 dist/
+package-lock.json
 
