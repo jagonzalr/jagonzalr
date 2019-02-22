@@ -32,7 +32,7 @@ const App = () => {
         Mexican <b>.</b> Software Engineer <b>.</b> <a href="https://www.lonelyplanet.com/south-africa/cape-town" target="blank">Cape Town</a>
       </div>
       <div className="section name">
-        <h2>José Antonio González Rodríguez</h2>
+        <h2 style={{ marginBottom: '10px' }}>José Antonio González Rodríguez</h2>
       </div>
       <div className="section living right">
         <p>
