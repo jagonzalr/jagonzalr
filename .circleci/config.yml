@@ -41,7 +41,6 @@ jobs:
           name: Deploy to S3 and Cloudfront
           command: |
             npm run build
-            python fix.py
             aws s3 sync $DIST s3://$AWS_BUCKET/ --delete
             aws cloudfront create-invalidation --cli-input-json '{"DistributionId":"'"$AWS_CLOUDFRONT_ID"'","InvalidationBatch":{"Paths":{"Quantity":2,"Items":["/index.html","/*"]},"CallerReference": "'$(date "+%s")'"}}'
 
