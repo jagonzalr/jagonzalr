@@ -23,8 +23,8 @@ jobs:
 
       - restore_cache:
           keys:
-            - v2.0.0-{{ checksum "package.json" }}
-            - v2.0.0-
+            - v2.0.1-{{ checksum "package.json" }}
+            - v2.0.1-
 
       - run:
           name: Install dependencies
@@ -33,7 +33,7 @@ jobs:
             npm install --only=dev
 
       - save_cache:
-          key: v2.0.0-{{ checksum "package.json" }}
+          key: v2.0.1-{{ checksum "package.json" }}
           paths:
             - node_modules/
 
