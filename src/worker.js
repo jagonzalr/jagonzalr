@@ -27,7 +27,7 @@ const isLocalhost = Boolean(
 export default function register (config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      const swUrl = 'meetingcosts-worker.js'
+      const swUrl = 'jagonzalr-worker.js'
       if (isLocalhost) {
         checkValidServiceWorker(swUrl, config)
         navigator.serviceWorker.ready.then(() => {
