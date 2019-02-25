@@ -98,7 +98,7 @@ const App = () => {
           </li>
           <li>
             <span>
-              <a href="https://aws.amazon.com/es/lambda/" target="blank">
+              <a href="https://graphql.org/" target="blank">
                 GraphQL
               </a>
             </span>&nbsp;
