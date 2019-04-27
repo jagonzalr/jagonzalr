@@ -38,27 +38,13 @@ const App = () => {
         <p>
           I currently work at&nbsp;
           <span>
-            <a href="https://proversity.org" target="blank">Proversity</a>
+            <a href="https://www.virtual-academies.com/" target="blank">Virtual Academies</a>
           </span>
         </p>
       </div>
       <div className="section stack left">
         <p className="intro">My current stack</p>
         <ul>
-          <li>
-            <span><a href="https://www.djangoproject.com/" target="blank">Django</a></span>,&nbsp;
-            <span>
-              <a href="http://www.django-rest-framework.org/" target="blank">
-                DRF
-              </a>
-            </span>&nbsp;
-            and&nbsp;
-            <span>
-              <a href="http://flask.pocoo.org/" target="blank">
-                Flask
-              </a>
-            </span>
-          </li>
           <li>
             <span>
               <a href="https://nodejs.org/" target="blank">
@@ -86,18 +72,6 @@ const App = () => {
           </li>
           <li>
             <span>
-              <a href="https://developer.apple.com/documentation/objectivec" target="blank">
-                Objective C
-              </a>
-            </span>&nbsp;
-            and <span>
-              <a href="https://developer.apple.com/documentation/swift" target="blank">
-                Swift
-              </a>
-            </span>
-          </li>
-          <li>
-            <span>
               <a href="https://graphql.org/" target="blank">
                 GraphQL
               </a>
@@ -108,6 +82,32 @@ const App = () => {
                 Serverless
               </a>
             </span>&nbsp;
+          </li>
+          <li>
+            <span><a href="https://www.djangoproject.com/" target="blank">Django</a></span>,&nbsp;
+            <span>
+              <a href="http://www.django-rest-framework.org/" target="blank">
+                DRF
+              </a>
+            </span>&nbsp;
+            and&nbsp;
+            <span>
+              <a href="http://flask.pocoo.org/" target="blank">
+                Flask
+              </a>
+            </span>
+          </li>
+          <li>
+            <span>
+              <a href="https://developer.apple.com/documentation/objectivec" target="blank">
+                Objective C
+              </a>
+            </span>&nbsp;
+            and <span>
+              <a href="https://developer.apple.com/documentation/swift" target="blank">
+                Swift
+              </a>
+            </span>
           </li>
           <li>
             <span>
