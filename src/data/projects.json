@@ -1,11 +1,11 @@
 [
 	{
-		"url": "https://meetingcosts.com",
-		"name": "meetingcosts"
-	},
-	{
 		"url": "https://npmpopularity.com",
 		"name": "NPM Popularity"
+	},
+	{
+		"url": "https://meetingcosts.com",
+		"name": "meetingcosts"
 	},
 	{
 		"url": "https://opensourcelicences.com",

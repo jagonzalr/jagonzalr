@@ -26,14 +26,14 @@ a {
     &:hover { color: $blue-color; cursor: pointer; }
 }
 
-.wrapper { padding: 5vh 2rem 10vh 2rem; }
+.wrapper { padding: 3vh 2rem 3vh 2rem; }
 
 .intro { margin-bottom: 5px; }
 
 .section { padding: 4px 10px 4px 10px; }
 
 .name {
-    font-size: 2rem;
+    font-size: 1.6rem;
     overflow-wrap: break-word;
     padding-left: 10px;
     padding-right: 10px;
@@ -51,12 +51,17 @@ a {
       }
     }
 
+    p {
+      margin-bottom: 0.5em;
+    }
+
     ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
 
         li {
+          margin-bottom: 0.5em;
           &:last-child {
             margin-bottom: 1em;
           }
@@ -70,7 +75,7 @@ a {
 
 .social-links {
     text-align: center;
-    font-size: 50px;
+    font-size: 45px;
 
     ul {
         list-style-type: none;
@@ -97,8 +102,8 @@ a {
 
 .title {
   font-size: 1.1rem;
-  margin-top: 20px;
-  margin-bottom: -35px;
+  margin-top: 10px;
+  margin-bottom: -25px;
   text-align: center;
 }
 
@@ -124,25 +129,31 @@ a {
 }
 
 @media screen and (min-width: 720px) {
-  .wrapper { padding: 5vh 10rem 10vh 10rem; }
+  .name { font-size: 1.7rem }
+  .wrapper { padding: 3vh 10rem 3vh 10rem; }
 }
 
 @media screen and (min-width: 960px) {
-  .wrapper { padding: 5vh 15rem 10vh 15rem; }
+  .name { font-size: 1.7rem }
+  .wrapper { padding: 3vh 15rem 3vh 15rem; }
 }
 
 @media screen and (min-width: 1200px) {
-  .wrapper { padding: 5vh 20rem 10vh 20rem; }
+  .name { font-size: 1.8rem }
+  .wrapper { padding: 3vh 20rem 3vh 20rem; }
 }
 
 @media screen and (min-width: 1440px) {
-  .wrapper { padding: 5vh 25rem 10vh 25rem; }
+  .name { font-size: 1.9rem }
+  .wrapper { padding: 3vh 25rem 3vh 25rem; }
 }
 
 @media screen and (min-width: 1680px) {
-  .wrapper { padding: 5vh 35rem 10vh 35rem; }
+  .name { font-size: 2.0rem }
+  .wrapper { padding: 3vh 35rem 3vh 35rem; }
 }
 
 @media screen and (min-width: 1920px) {
-  .wrapper { padding: 5vh 40rem 10vh 40rem; }
+  .name { font-size: 2.0rem }
+  .wrapper { padding: 3vh 40rem 3vh 40rem; }
 }

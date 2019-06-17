@@ -48,8 +48,7 @@ export default () => (
           <a href='http://www.django-rest-framework.org/' target='blank'>
             DRF
           </a>
-        </span>&nbsp;
-        and&nbsp;
+        </span>&nbsp;and&nbsp;
         <span>
           <a href='http://flask.pocoo.org/' target='blank'>
             Flask
@@ -61,8 +60,7 @@ export default () => (
           <a href='https://developer.apple.com/documentation/objectivec' target='blank'>
             Objective C
           </a>
-        </span>&nbsp;
-        and <span>
+        </span>&nbsp;and <span>
           <a href='https://developer.apple.com/documentation/swift' target='blank'>
             Swift
           </a>
@@ -73,8 +71,7 @@ export default () => (
           <a href='https://webpack.js.org/' target='blank'>
             Webpack
           </a>
-        </span>&nbsp;
-        and&nbsp;
+        </span>&nbsp;and&nbsp;
         <span>
           <a href='https://gulpjs.com/' target='blank'>
             Gulp
