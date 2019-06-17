@@ -15,6 +15,12 @@ module.exports = {
   	'gatsby-plugin-react-helmet',
   	'gatsby-transformer-json',
     {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en'
+      }
+    },
+    {
       resolve:'gatsby-source-filesystem',
       options: {
         path: './src/data/'
