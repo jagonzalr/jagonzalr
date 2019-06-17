@@ -12,6 +12,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-eslint',
   	'gatsby-plugin-sass',
+  	'gatsby-plugin-react-helmet',
   	'gatsby-transformer-json',
     {
       resolve:'gatsby-source-filesystem',
@@ -19,6 +20,12 @@ module.exports = {
         path: './src/data/'
       }
     },
+    {
+	    resolve: 'gatsby-plugin-google-tagmanager',
+	    options: {
+	      id: 'UA-111640764-1'
+	    }
+	  },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
