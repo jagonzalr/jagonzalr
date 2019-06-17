@@ -1,7 +1,5 @@
 # jagonzalr
 My personal website
 
-- Build in React
-- Development automation with Webpack
-- Continuous deployment with CircleCI
-- On AWS with S3, Cloudfront and Route53
+- Build with [GatsbyJS](https://www.gatsbyjs.org/)
+- Continuous deployment with [Netlify](https://www.netlify.com/)
