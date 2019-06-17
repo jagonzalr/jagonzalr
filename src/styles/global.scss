@@ -1,0 +1,127 @@
+
+@import "typography";
+
+$black-color: #0C0503;
+$blue-color: #1B72F9;
+$white-color: #FFFFFF;
+
+body {
+    background-color: $white-color;
+    line-height: 1.4;
+    letter-spacing: 0.12rem;
+    margin: 0;
+    min-height: 100vh;
+    min-width: 320px;
+    overflow-x: hidden;
+    padding: 0;
+    vertical-align: baseline;
+    word-wrap: break-word;
+}
+
+a {
+    text-decoration: none;
+    color: $black-color;
+    transition: color 0.25s ease;
+
+    &:hover { color: $blue-color; cursor: pointer; }
+}
+
+.wrapper { padding: 5vh 2rem 10vh 2rem; }
+
+.intro { margin-bottom: 5px; }
+
+.section { padding: 4px 10px 4px 10px; }
+
+.name {
+    font-size: 2rem;
+    overflow-wrap: break-word;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.left {text-align: left; }
+
+.right { text-align: right; }
+
+.living, .projects, .stack {
+    p, li {
+      span {
+        font-weight: 700;
+        font-family: 'Rubik-Bold', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          &:last-child {
+            margin-bottom: 1em;
+          }
+          
+          span {
+            font-weight: 700;
+          }
+        }
+    }
+}
+
+.social-links {
+    text-align: center;
+    font-size: 50px;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0rem;
+
+            a {
+                border-radius: 5rem;
+                display: flex;
+                justify-content: center;
+                width: 1.5em;
+                height: 1.5em;
+
+                i { display: block; }
+            }
+        }
+    }
+}
+
+.title {
+  font-size: 1.1rem;
+  margin-top: 20px;
+  margin-bottom: -35px;
+  text-align: center;
+}
+
+@media screen and (min-width: 720px) {
+  .wrapper { padding: 5vh 10rem 10vh 10rem; }
+}
+
+@media screen and (min-width: 960px) {
+  .wrapper { padding: 5vh 15rem 10vh 15rem; }
+}
+
+@media screen and (min-width: 1200px) {
+  .wrapper { padding: 5vh 20rem 10vh 20rem; }
+}
+
+@media screen and (min-width: 1440px) {
+  .wrapper { padding: 5vh 25rem 10vh 25rem; }
+}
+
+@media screen and (min-width: 1680px) {
+  .wrapper { padding: 5vh 35rem 10vh 35rem; }
+}
+
+@media screen and (min-width: 1920px) {
+  .wrapper { padding: 5vh 40rem 10vh 40rem; }
+}
