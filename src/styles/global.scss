@@ -26,11 +26,11 @@ a {
     &:hover { color: $blue-color; cursor: pointer; }
 }
 
-.wrapper { padding: 3vh 2rem 3vh 2rem; }
+.wrapper { padding: 2vh 2rem 3vh 2rem; }
 
 .intro { margin-bottom: 5px; }
 
-.section { padding: 4px 10px 4px 10px; }
+.section { padding: 3.5px 10px 3.5px 10px; }
 
 .name {
     font-size: 1.6rem;
@@ -130,30 +130,30 @@ a {
 
 @media screen and (min-width: 720px) {
   .name { font-size: 1.7rem }
-  .wrapper { padding: 3vh 10rem 3vh 10rem; }
+  .wrapper { padding: 2vh 10rem 3vh 10rem; }
 }
 
 @media screen and (min-width: 960px) {
   .name { font-size: 1.7rem }
-  .wrapper { padding: 3vh 15rem 3vh 15rem; }
+  .wrapper { padding: 2vh 15rem 3vh 15rem; }
 }
 
 @media screen and (min-width: 1200px) {
   .name { font-size: 1.8rem }
-  .wrapper { padding: 3vh 20rem 3vh 20rem; }
+  .wrapper { padding: 2vh 20rem 3vh 20rem; }
 }
 
 @media screen and (min-width: 1440px) {
   .name { font-size: 1.9rem }
-  .wrapper { padding: 3vh 25rem 3vh 25rem; }
+  .wrapper { padding: 2vh 25rem 3vh 25rem; }
 }
 
 @media screen and (min-width: 1680px) {
   .name { font-size: 2.0rem }
-  .wrapper { padding: 3vh 35rem 3vh 35rem; }
+  .wrapper { padding: 2vh 30rem 3vh 30rem; }
 }
 
 @media screen and (min-width: 1920px) {
   .name { font-size: 2.0rem }
-  .wrapper { padding: 3vh 40rem 3vh 40rem; }
+  .wrapper { padding: 2vh 35rem 3vh 35rem; }
 }

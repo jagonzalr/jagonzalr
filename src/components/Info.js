@@ -19,6 +19,8 @@ export default () => {
 
   return (
   	<Fragment>
+      <div className='item'>
+      </div>
 			<div className='section social-links'>
 		    <ul>
 		    	{data.allSocialLinksJson.nodes.map(({ id, name, url }) =>
