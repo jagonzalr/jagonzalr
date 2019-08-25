@@ -1,6 +1,7 @@
 
 import React, { Fragment } from 'react'
 
+import Footer from '../components/Footer'
 import Head from '../components/Head'
 import Info from '../components/Info'
 import Projects from '../components/Projects'
@@ -13,6 +14,7 @@ export default () => (
 			<Info />
 			<Stack/>
 			<Projects />
+			<Footer />
 		</div>
 	</Fragment>
 )

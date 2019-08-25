@@ -46,7 +46,7 @@ export default () => {
   		</div>
   		<div className='section name'>
         <h2 style={{ marginBottom: '10px' }}>
-        	José Antonio González Rodríguez
+        	José Antonio <span className='blue'>González Rodríguez</span>
         </h2>
       </div>
       <div className='section living right'>
