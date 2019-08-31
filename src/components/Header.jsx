@@ -1,24 +1,25 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import Toggle from 'react-toggle'
 import { useStaticQuery, graphql } from 'gatsby'
+import Cache from '@aws-amplify/cache'
 
 import Head from './Head'
 import MoonEmoji from './MoonEmoji'
 import SunEmoji from './SunEmoji'
 
 export default () => {
-	const [theme, setTheme] = useState(localStorage.getItem('jagonzalr_theme') || 'light')
+	const [theme, setTheme] = useState(Cache.getItem('jagonzalr_theme') || 'light')
 	useEffect(() => {
 		if (!window.matchMedia) {
 			return
 		}
 
 		let darkTheme = null
-		const localTheme = localStorage.getItem('jagonzalr_theme')
+		const localTheme = Cache.getItem('jagonzalr_theme')
 		const listener = e => {
 			let newTheme = e.matches ? 'dark' : 'light'
 			setTheme(newTheme)
-			localStorage.setItem('jagonzalr_theme', newTheme)
+			Cache.setItem('jagonzalr_theme', newTheme)
 		}
 
 		darkTheme = window.matchMedia('(prefers-color-scheme: dark)')
@@ -70,7 +71,7 @@ export default () => {
 	        onChange={e => {
 	        	const theme = e.target.checked ? 'dark' : 'light'
 	        	setTheme(theme)
-	        	localStorage.setItem('jagonzalr_theme', theme)
+	        	Cache.setItem('jagonzalr_theme', theme)
 	        }}
 	      />
 			</header>
