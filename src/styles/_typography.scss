@@ -46,12 +46,16 @@
 .icons8-linkedin:before { content: "\f102"; }
 
 body {
-    font-size: 1.1rem;
+    @include font-size(1.1rem);
     font-family: 'Karla-Regular', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Rubik-Bold', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+h1 {
+  @include font-size(3.5rem);
 }
 
 .credit {
@@ -60,5 +64,14 @@ h1, h2, h3, h4, h5, h6 {
   a {
     font-weight: 700;
     font-family: 'Rubik-Bold', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+}
+
+.living, .projects, .stack {
+  p, li {
+    span {
+      font-weight: 700;
+      font-family: 'Rubik-Bold', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
   }
 }
