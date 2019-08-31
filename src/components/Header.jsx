@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import Toggle from 'react-toggle'
 import { useStaticQuery, graphql } from 'gatsby'
 
@@ -7,7 +7,31 @@ import MoonEmoji from './MoonEmoji'
 import SunEmoji from './SunEmoji'
 
 export default () => {
-	const [theme, setTheme] = useState('light')
+	const [theme, setTheme] = useState(localStorage.getItem('jagonzalr_theme') || 'light')
+	useEffect(() => {
+		if (!window.matchMedia) {
+			return
+		}
+
+		let darkTheme = null
+		const localTheme = localStorage.getItem('jagonzalr_theme')
+		const listener = e => {
+			let newTheme = e.matches ? 'dark' : 'light'
+			setTheme(newTheme)
+			localStorage.setItem('jagonzalr_theme', newTheme)
+		}
+
+		darkTheme = window.matchMedia('(prefers-color-scheme: dark)')
+		darkTheme.addListener(listener)
+		setTheme(localTheme || (darkTheme.matches ? 'dark' : 'light'))
+
+		return () => {
+			if (darkTheme) {
+				darkTheme.removeListener(listener)
+			}
+		}
+	}, [])
+
 	const data = useStaticQuery(
     graphql`
       query {
@@ -38,12 +62,16 @@ export default () => {
 		      </ul>
 		     </div>
 	      <Toggle
-	        defaultChecked={false}
+	        checked={theme === 'dark'}
 	        icons={{
 	          checked: <MoonEmoji />,
 	          unchecked: <SunEmoji />
 	        }}
-	        onChange={e => setTheme(e.target.checked ? 'dark' : 'light')}
+	        onChange={e => {
+	        	const theme = e.target.checked ? 'dark' : 'light'
+	        	setTheme(theme)
+	        	localStorage.setItem('jagonzalr_theme', theme)
+	        }}
 	      />
 			</header>
 		</Fragment>
