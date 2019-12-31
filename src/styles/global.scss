@@ -20,6 +20,7 @@ body {
   min-width: 320px;
   overflow-x: hidden;
   padding: 0;
+  transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
   vertical-align: baseline;
   word-wrap: break-word;
 }

@@ -33,6 +33,12 @@ module.exports = {
 	    }
 	  },
     {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: '#130708'
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `jagonzalr`,
