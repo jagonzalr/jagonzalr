@@ -33,10 +33,15 @@ export default () => (
           <a href='https://graphql.org/' target='blank'>
             GraphQL
           </a>
-        </span>&nbsp;and&nbsp;
+        </span>,&nbsp;
         <span>
           <a href='https://serverless.com/' target='blank'>
             Serverless
+          </a>
+        </span>&nbsp;and&nbsp;
+        <span>
+          <a href='https://serverless.com/' target='blank'>
+            Terraform
           </a>
         </span>&nbsp;
       </li>
@@ -103,7 +108,7 @@ export default () => (
         CloudFront, SQS, SES, EB, Cognito,
       </li>
       <li>
-        Elastic Transcoder, Route53)
+        Elastic Transcoder, Route53, DynamoDB)
       </li>
     </ul>
 	</div>
