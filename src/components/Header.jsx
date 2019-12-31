@@ -55,7 +55,7 @@ export default () => {
 		      <ul>
 		        {data.allSocialLinksJson.nodes.map(({ id, name, url }) =>
 		          <li key={id}>
-		            <a href={url} target='blank' aria-label={name}>
+		            <a href={url} target='_blank' aria-label={name}>
 		              <i className={`icons8-${name.toLowerCase()}`}></i>
 		            </a>
 		          </li>

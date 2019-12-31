@@ -11,7 +11,7 @@ export default () => {
         <b>.</b>&nbsp;
         <a
           href='https://www.lonelyplanet.com/south-africa/cape-town'
-          target='blank'
+          target='_blank'
         >
           Cape Town
         </a>
@@ -23,7 +23,7 @@ export default () => {
         <p>
           I currently work at&nbsp;
           <span>
-            <a href='https://www.virtual-academies.com/' target='blank'>
+            <a href='https://www.virtual-academies.com/' target='_blank'>
             	Virtual Academies
             </a>
           </span>

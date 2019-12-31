@@ -24,7 +24,7 @@ export default () => {
         {data.allProjectsJson.nodes.map(({ id, name, url }) =>
           <li key={id}>
             <span>
-              <a href={url} target='blank'>
+              <a href={url} target='_blank'>
                 {name}
               </a>
             </span>

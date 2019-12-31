@@ -11,7 +11,7 @@ export default () => {
               <a
                 href='https://www.gatsbyjs.org/'
                 rel='noopener noreferrer'
-                target='_blank'
+                target='__blank'
               >
                 Gatsby
               </a>
@@ -24,7 +24,7 @@ export default () => {
             	Icons&nbsp;from&nbsp;
 				      <a
 				        href='https://icons8.com'
-				        target='_blank'
+				        target='__blank'
 				        rel='noopener noreferrer'
 				      >
 				        Icons8
