@@ -9,10 +9,10 @@ const PROJECTS = [
     'url': 'https://npmpopularity.com',
     'name': 'NPM Popularity'
   },
-  {
-    'url': 'https://meetingcosts.com',
-    'name': 'Meeting Costs'
-  },
+  // {
+  //   'url': 'https://meetingcosts.com',
+  //   'name': 'Meeting Costs'
+  // },
   {
     'url': 'https://theuniqueid.com',
     'name': 'The Unique ID'
