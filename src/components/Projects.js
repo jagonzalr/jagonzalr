@@ -1,28 +1,35 @@
-
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+
+const PROJECTS = [
+  {
+    'url': 'https://capturaless.com',
+    'name': 'Capturaless'
+  },
+  {
+    'url': 'https://npmpopularity.com',
+    'name': 'NPM Popularity'
+  },
+  {
+    'url': 'https://meetingcosts.com',
+    'name': 'Meeting Costs'
+  },
+  {
+    'url': 'https://theuniqueid.com',
+    'name': 'The Unique ID'
+  },
+  {
+    'url': 'https://opensourcelicences.com',
+    'name': 'Open Source Licences'
+  }
+]
 
 export default () => {
-	const data = useStaticQuery(
-    graphql`
-      query {
-        allProjectsJson {
-          nodes {
-          	id
-          	name
-          	url
-          }
-        }
-      }
-    `
-  )
-
   return (
   	<div className='section projects right'>
       <p className='intro'>My current projects</p>
       <ul>
-        {data.allProjectsJson.nodes.map(({ id, name, url }) =>
-          <li key={id}>
+        {PROJECTS.map(({ name, url }) =>
+          <li key={url}>
             <span>
               <a href={url} target='_blank'>
                 {name}

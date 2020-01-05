@@ -21,31 +21,19 @@ module.exports = {
       }
     },
     {
-      resolve:'gatsby-source-filesystem',
-      options: {
-        path: './src/data/'
-      }
-    },
-    {
 	    resolve: 'gatsby-plugin-google-analytics',
 	    options: {
 	      trackingId: 'UA-111640764-1'
 	    }
 	  },
     {
-      resolve: 'gatsby-plugin-nprogress',
-      options: {
-        color: '#130708'
-      }
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `jagonzalr`,
         short_name: `jagonzalr`,
         start_url: `/`,
-        background_color: `#6b37bf`,
-        theme_color: `#6b37bf`,
+        background_color: `#2e27f8`,
+        theme_color: `#2e27f8`,
         display: `standalone`,
         icon: 'src/images/favicon.png'
       }

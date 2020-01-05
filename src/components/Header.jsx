@@ -1,11 +1,25 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import Toggle from 'react-toggle'
-import { useStaticQuery, graphql } from 'gatsby'
 import Cache from '@aws-amplify/cache'
 
 import Head from './Head'
 import MoonEmoji from './MoonEmoji'
 import SunEmoji from './SunEmoji'
+
+const SOCIAL_LINKS = [
+	{
+		'url': 'https://github.com/jagonzalr',
+		'name': 'Github'
+	},
+	{
+		'url': 'https://www.instagram.com/jagonzalr',
+		'name': 'Instagram'
+	},
+	{
+		'url': 'https://www.linkedin.com/in/jagonzalr',
+		'name': 'LinkedIn'
+	}
+]
 
 export default () => {
 	const [theme, setTheme] = useState(Cache.getItem('jagonzalr_theme') || 'light')
@@ -33,28 +47,14 @@ export default () => {
 		}
 	}, [])
 
-	const data = useStaticQuery(
-    graphql`
-      query {
-        allSocialLinksJson {
-          nodes {
-            id
-            name
-            url
-          }
-        }
-      }
-    `
-  )
-
 	return (
 		<Fragment>
 			<Head theme={theme} />
 			<header>
 				<div className='social-links'>
 		      <ul>
-		        {data.allSocialLinksJson.nodes.map(({ id, name, url }) =>
-		          <li key={id}>
+		        {SOCIAL_LINKS.map(({ name, url }) =>
+		          <li key={url}>
 		            <a href={url} target='_blank' aria-label={name}>
 		              <i className={`icons8-${name.toLowerCase()}`}></i>
 		            </a>

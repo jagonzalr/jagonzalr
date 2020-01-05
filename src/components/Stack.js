@@ -15,11 +15,16 @@ export default () => (
           <a href='https://redux.js.org/' target='_blank'>
             Redux
           </a>
+        </span>,&nbsp;
+        <span>
+          <a href='https://reactjs.org/' target='_blank'>
+            Redux-Saga
+          </a>
         </span>&nbsp;
         and&nbsp;
         <span>
           <a href='https://redux-saga.js.org/' target='_blank'>
-            Redux-Saga
+            Webpack
           </a>
         </span>
       </li>
@@ -27,6 +32,11 @@ export default () => (
         <span>
           <a href='https://nodejs.org/' target='_blank'>
             Node.js
+          </a>
+        </span>,&nbsp;
+        <span>
+          <a href='https://aws.amazon.com/' target='_blank'>
+            AWS
           </a>
         </span>,&nbsp;
         <span>
@@ -72,18 +82,6 @@ export default () => (
         </span>
       </li>
       <li>
-        <span>
-          <a href='https://webpack.js.org/' target='_blank'>
-            Webpack
-          </a>
-        </span>&nbsp;and&nbsp;
-        <span>
-          <a href='https://gulpjs.com/' target='_blank'>
-            Gulp
-          </a>
-        </span>
-      </li>
-      <li>
         CI / CD with&nbsp;
         <span>
           <a href='https://circleci.com/' target='_blank'>
@@ -95,20 +93,6 @@ export default () => (
             Netlify
           </a>
         </span>
-      </li>
-      <li>
-        <span>
-          <a href='https://aws.amazon.com/' target='_blank'>
-            AWS
-          </a>
-        </span>&nbsp;
-        (Amplify, Lambda, SNS, S3,
-      </li>
-      <li>
-        CloudFront, SQS, SES, EB, Cognito,
-      </li>
-      <li>
-        Elastic Transcoder, Route53, DynamoDB)
       </li>
     </ul>
 	</div>
