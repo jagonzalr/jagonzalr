@@ -2,10 +2,6 @@ import React from 'react'
 
 const PROJECTS = [
   {
-    'url': 'https://capturaless.com',
-    'name': 'Capturaless'
-  },
-  {
     'url': 'https://npmpopularity.com',
     'name': 'NPM Popularity'
   },
