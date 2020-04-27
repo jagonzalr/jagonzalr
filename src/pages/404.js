@@ -2,16 +2,15 @@
 import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
 
-import Head from '../components/Head'
+import Layout from '../components/Layout'
 
 export default () => (
-	<Fragment>
-		<Head />
-		<div className='wrong-page'>
-		  <h2 className='wrong-page-title'>Upsi, wrong page</h2>
+	<Layout>
+		<div className='w-100 h-100 p-2 mx-auto'>
+		  <h2 className='title'>Upsi, wrong page</h2>
 		  <Link to={'/'}>
-		  	<p className='wrong-page-subtitle'>Go back to safety</p>
+		  	<p className='text'>Go back to safety</p>
 		  </Link>
 		</div>
-	</Fragment>
+	</Layout>
 )
