@@ -4,7 +4,9 @@ import React, { Fragment, useEffect, useState, useRef } from 'react'
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
 import AWSCertified from '../images/aws-certified.png'
+import CoffeeDoodle from '../images/CoffeeDoodle.svg'
 import StrollingDoodle from '../images/StrollingDoodle.svg'
+import ZombieingDoodle from '../images/ZombieingDoodle.svg'
 
 function useInterval(callback, delay) {
   const savedCallback = useRef()
@@ -37,10 +39,22 @@ const OPTIONS = [
 
 export default () => {
 	const [index, setIndex] = useState(0)
+	const [img, setImg] = useState(null)
+
+	useEffect(() => {
+		changeImg()
+	}, [])
 
 	useInterval(() => {
 		setIndex((index + 1) % OPTIONS.length)
 	}, 2500)
+
+	const changeImg = () => {
+		const number = Math.floor(Math.random() * 3) + 1
+		if (number === 1) setImg(CoffeeDoodle)
+		if (number === 2) setImg(StrollingDoodle)
+		if (number === 3) setImg(ZombieingDoodle)
+	}
 
 	return (
 		<Fragment>
@@ -75,7 +89,7 @@ export default () => {
 							</p>
 						</div>
 						<div className='col-md-6 col-lg-4 d-none d-md-block'>
-							<img src={StrollingDoodle} className='img-fluid w-100 h-100' />
+							{img && <img src={img} className='img-fluid w-100 h-100' />}
 						</div>
 					</div>
 					<div className='row justify-content-start py-1 px-4'>
