@@ -7,19 +7,21 @@
 module.exports = {
 	siteMetadata: {
     title: 'jagonzalr',
-    github: 'https://github.com/jagonzalr'
+    description: 'Personal website',
+    author: 'Jose Antonio Gonzalez Rodriguez'
   },
   plugins: [
-    'gatsby-plugin-eslint',
-  	'gatsby-plugin-sass',
-  	'gatsby-plugin-react-helmet',
-  	'gatsby-transformer-json',
+    `gatsby-plugin-react-helmet`,
+  	`gatsby-plugin-sass`,
     {
-      resolve: 'gatsby-plugin-html-attributes',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        lang: 'en'
-      }
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
 	    resolve: 'gatsby-plugin-google-analytics',
 	    options: {
@@ -34,7 +36,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#2e27f8`,
         theme_color: `#2e27f8`,
-        display: `standalone`,
+        display: `minimal-ui`,
         icon: 'src/images/favicon.png'
       }
     },

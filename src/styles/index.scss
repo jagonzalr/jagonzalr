@@ -1,0 +1,70 @@
+@import '~rfs/sass';
+@import url('https://fonts.googleapis.com/css?family=Bitter:400|Work+Sans:700&display=swap');
+
+$font-stack: 'Bitter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-bold-stack: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+$background-color: #FCFCFC;
+$black-color: #0C0503;
+$blue-color: #2e27f8;
+$light-blue-color: #3f47ec;
+$green-color: #25CA6F;
+$yellow-color: #F2A74B;
+$red-color: #E92628;
+
+html {
+    font-size: 1.1rem;
+    overflow-x: hidden;
+    letter-spacing: 0.12rem;
+}
+
+body {
+    background: $background-color;
+    color: $black-color;
+    font-family: $font-stack;
+    font-size: 1.1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-bold-stack;
+    font-weight: 700;
+}
+
+a {
+	color: $black-color;
+	text-decoration: none;
+
+	&:hover {
+		color: $blue-color;
+		text-decoration: underline;
+	}
+}
+
+.navbar-brand {
+	font-size: 1.1rem;
+}
+
+.title {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	@include font-size(2.8rem);
+}
+
+.text {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	@include font-size(1.6rem);
+}
+
+
+.blue-text {
+	color: $blue-color;
+	font-family: $font-bold-stack;
+    font-weight: 700;
+}
+
+.bold-text {
+	color: $black-color;
+	font-family: $font-bold-stack;
+    font-weight: 700;
+}
