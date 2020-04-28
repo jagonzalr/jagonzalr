@@ -1,53 +1,32 @@
-
 import React, { Fragment, useEffect, useState, useRef } from 'react'
+import { useTyping } from 'use-typing'
 
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
-import AWSCertified from '../images/aws-certified.png'
 import CoffeeDoodle from '../images/CoffeeDoodle.svg'
 import StrollingDoodle from '../images/StrollingDoodle.svg'
 import ZombieingDoodle from '../images/ZombieingDoodle.svg'
-
-function useInterval(callback, delay) {
-  const savedCallback = useRef()
-
-  useEffect(() => {
-    savedCallback.current = callback
-  }, [callback])
-
-  useEffect(() => {
-    function tick() {
-      savedCallback.current()
-    }
-    if (delay !== null) {
-      let id = setInterval(tick, delay)
-      return () => clearInterval(id)
-    }
-  }, [delay])
-}
 
 const OPTIONS = [
 	'software engineer',
 	'Mexican',
 	'AWS Certified',
-	'amateur photographer',
-	'casual gamer',
 	'cinephile',
+	'casual gamer',
 	'bibliophile',
-	'Netflix binger'
+	'Netflix binger',
+	'amateur photographer'
 ]
 
 export default () => {
 	const [index, setIndex] = useState(0)
 	const [img, setImg] = useState(null)
 
+	const text = useTyping({ phrases: OPTIONS })
+
 	useEffect(() => {
 		changeImg()
 	}, [])
-
-	useInterval(() => {
-		setIndex((index + 1) % OPTIONS.length)
-	}, 2500)
 
 	const changeImg = () => {
 		const number = Math.floor(Math.random() * 3) + 1
@@ -69,23 +48,16 @@ export default () => {
 							<h1 className='title'>José Antonio González Rodríguez</h1>
 							<p className='text'>
 								and I'm{' '}
-								{index !== 2 &&
+								{!text.startsWith('A') &&
 									<Fragment>
-										{index === 3 ? 'an' : 'a'}{' '}		
+										{text.startsWith('a') ? 'an' : 'a'}{' '}
 									</Fragment>
 								}
-								{index !== 2 ?
-									<span
-										className='blue-text'
-									>
-										{OPTIONS[index]}
-									</span> :
-									<img
-										className='img-fluid mt-n2'
-										style={{ width: '30%' }}
-										src={AWSCertified}
-									/>
-								}.
+								<span
+									className='blue-text'
+								>
+									{text}
+								</span>.
 							</p>
 						</div>
 						<div className='col-md-6 col-lg-4 d-none d-md-block'>
@@ -162,19 +134,20 @@ export default () => {
 								</a>,{' '}
 								<a
 									className='bold-text'
-									href='https://www.linkedin.com/in/jagonzalr/'
-									target='_blank'
-								>
-									LinkedIn
-								</a>{' '}
-								or{' '}
-								<a
-									className='bold-text'
 									href='https://www.instagram.com/jagonzalr/'
 									target='_blank'
 								>
 									Instagram
-								</a>.
+								</a>{' '}
+								or{' '}
+								<a
+									className='bold-text'
+									href='https://www.linkedin.com/in/jagonzalr/'
+									target='_blank'
+								>
+									LinkedIn
+								</a>
+								.
 							</p>
 						</div>
 					</div>
