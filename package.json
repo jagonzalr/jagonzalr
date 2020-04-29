@@ -30,7 +30,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "rfs": "^9.0.3",
-    "use-typing": "^1.0.2"
+    "use-typing": "^1.0.3"
   },
   "devDependencies": {
     "prettier": "^2.0.5"
