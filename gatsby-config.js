@@ -8,7 +8,8 @@ module.exports = {
 	siteMetadata: {
     title: 'jagonzalr',
     description: 'Personal website',
-    author: 'Jose Antonio Gonzalez Rodriguez'
+    author: 'Jose Antonio Gonzalez Rodriguez',
+    siteUrl: 'https://jagonzalr.com'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
