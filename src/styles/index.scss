@@ -5,12 +5,25 @@ $font-stack: 'Bitter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, He
 $font-bold-stack: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 $background-color: #FCFCFC;
-$black-color: #0C0503;
+$black-color: #252835;
 $blue-color: #2e27f8;
-$light-blue-color: #3f47ec;
+$light-blue-color: #6f75f1;
 $green-color: #25CA6F;
 $yellow-color: #F2A74B;
 $red-color: #E92628;
+
+:root {
+  --black: #252835;
+  --white: #ffffff;
+  --blue: #2e27f8;
+  --light-blue: #878cf3;
+  --dark-white: #FEFEFE;
+}
+
+::selection {
+  background: #878cf3;
+  color: var(--dark-white);
+}
 
 html {
     font-size: 1.1rem;
@@ -19,23 +32,40 @@ html {
 }
 
 body {
-    background: $background-color;
-    color: $black-color;
+    background: var(--bkgColor);
+    color: var(--textColor);
     font-family: $font-stack;
     font-size: 1.1rem;
+    transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+}
+
+body.light {
+  --bkgColor: var(--white);
+  --textColor: var(--black);
+  --accentColor: var(--blue);
+}
+
+body.dark {
+  --bkgColor: var(--black);
+  --textColor: var(--dark-white);
+  --accentColor: var(--light-blue);
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: $font-bold-stack;
-    font-weight: 700;
+  font-family: $font-bold-stack;
+  font-weight: 700;
+}
+
+img:not([src*=".svg"]), video {  
+   filter: invert(100%);
 }
 
 a {
-	color: $black-color;
+	color: var(--textColor);
 	text-decoration: none;
 
 	&:hover {
-		color: $blue-color;
+		color: var(--accentColor);
 		text-decoration: underline;
 	}
 }
@@ -47,24 +77,172 @@ a {
 .title {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
-	@include font-size(2.8rem);
+	@include font-size(2.75rem);
 }
 
 .text {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
-	@include font-size(1.6rem);
+	@include font-size(1.55rem);
 }
 
 
-.blue-text {
-	color: $blue-color;
+.accent-text {
+	color: var(--accentColor);
 	font-family: $font-bold-stack;
     font-weight: 700;
 }
 
 .bold-text {
-	color: $black-color;
+	color: var(--textColor);
 	font-family: $font-bold-stack;
     font-weight: 700;
+}
+
+/*
+* React Select
+*/
+
+.react-toggle {
+  touch-action: pan-x;
+
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.react-toggle-screenreader-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.react-toggle--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+
+.react-toggle-track {
+  width: 60px;
+  height: 24px;
+  padding: 0;
+  border-radius: 30px;
+  background-color: var(--black);
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: var(--black);
+}
+
+.react-toggle--checked .react-toggle-track {
+  background-color: var(--black);
+  border: 1px solid var(--accentColor);
+}
+
+.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: var(--black);
+  border: 1px solid var(--accentColor);
+}
+
+.react-toggle-track-check {
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  top: 0px;
+  bottom: 0px;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 0;
+  left: 8px;
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.react-toggle--checked .react-toggle-track-check {
+  opacity: 1;
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.react-toggle-track-x {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 0px;
+  bottom: 0px;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 0;
+  right: 10px;
+  opacity: 1;
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.react-toggle--checked .react-toggle-track-x {
+  opacity: 0;
+}
+
+.react-toggle-thumb {
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  background-color: var(--white);
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.react-toggle--checked .react-toggle-thumb {
+  left: 37px;
+  border-color: var(--accentColor);
+}
+
+.react-toggle--focus .react-toggle-thumb {
+  -webkit-box-shadow: 0px 0px 3px 2px var(--accentColor);
+  -moz-box-shadow: 0px 0px 3px 2px var(--accentColor);
+  box-shadow: 0px 0px 2px 3px var(--accentColor);
+}
+
+.react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
+  -webkit-box-shadow: 0px 0px 5px 5px var(--accentColor);
+  -moz-box-shadow: 0px 0px 5px 5px var(--accentColor);
+  box-shadow: 0px 0px 5px 5px var(--accentColor);
 }

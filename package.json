@@ -18,9 +18,11 @@
     "gatsby": "^2.20.36",
     "gatsby-image": "^2.3.5",
     "gatsby-plugin-google-analytics": "^2.2.5",
+    "gatsby-plugin-html-attributes": "^1.0.5",
     "gatsby-plugin-manifest": "^2.3.7",
     "gatsby-plugin-offline": "^3.1.5",
     "gatsby-plugin-react-helmet": "^3.2.5",
+    "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sass": "^2.2.4",
     "gatsby-plugin-sharp": "^2.5.7",
     "gatsby-source-filesystem": "^2.2.5",
@@ -29,7 +31,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
+    "react-toggle": "^4.1.1",
     "rfs": "^9.0.3",
+    "use-dark-theme": "^1.0.0",
     "use-typing": "^1.0.3"
   },
   "devDependencies": {

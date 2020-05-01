@@ -40,6 +40,13 @@ module.exports = {
         icon: 'src/images/favicon.png'
       }
     },
-    'gatsby-plugin-offline'
+    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en'
+      }
+    },
+    'gatsby-plugin-robots-txt'
   ]
 }
