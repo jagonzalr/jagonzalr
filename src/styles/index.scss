@@ -5,12 +5,20 @@ $font-stack: 'Bitter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, He
 $font-bold-stack: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 $background-color: #FCFCFC;
-$black-color: #0C0503;
+$black-color: #252835;
 $blue-color: #2e27f8;
-$light-blue-color: #3f47ec;
+$light-blue-color: #6f75f1;
 $green-color: #25CA6F;
 $yellow-color: #F2A74B;
 $red-color: #E92628;
+
+:root {
+  --black: #252835;
+  --white: #ffffff;
+  --blue: #2e27f8;
+  --light-blue: #878cf3;
+  --dark-white: #FEFEFE;
+}
 
 html {
     font-size: 1.1rem;
@@ -19,23 +27,39 @@ html {
 }
 
 body {
-    background: $background-color;
-    color: $black-color;
+    background: var(--bkgColor);
+    color: var(--textColor);
     font-family: $font-stack;
     font-size: 1.1rem;
 }
 
+body.light {
+  --bkgColor: var(--white);
+  --textColor: var(--black);
+  --accentColor: var(--blue);
+}
+
+body.dark {
+  --bkgColor: var(--black);
+  --textColor: var(--dark-white);
+  --accentColor: var(--light-blue);
+}
+
 h1, h2, h3, h4, h5, h6 {
-    font-family: $font-bold-stack;
-    font-weight: 700;
+  font-family: $font-bold-stack;
+  font-weight: 700;
+}
+
+img:not([src*=".svg"]), video {  
+   filter: invert(100%);
 }
 
 a {
-	color: $black-color;
+	color: var(--textColor);
 	text-decoration: none;
 
 	&:hover {
-		color: $blue-color;
+		color: var(--accentColor);
 		text-decoration: underline;
 	}
 }
@@ -57,14 +81,14 @@ a {
 }
 
 
-.blue-text {
-	color: $blue-color;
+.accent-text {
+	color: var(--accentColor);
 	font-family: $font-bold-stack;
     font-weight: 700;
 }
 
 .bold-text {
-	color: $black-color;
+	color: var(--textColor);
 	font-family: $font-bold-stack;
     font-weight: 700;
 }

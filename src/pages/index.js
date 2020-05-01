@@ -1,11 +1,16 @@
-import React, { Fragment, useEffect, useState, useRef } from 'react'
+import React, { Fragment, useEffect, useState, useRef, useContext } from 'react'
 import { useTyping } from 'use-typing'
 
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
-import CoffeeDoodle from '../images/CoffeeDoodle.svg'
-import StrollingDoodle from '../images/StrollingDoodle.svg'
-import ZombieingDoodle from '../images/ZombieingDoodle.svg'
+import ThemeContext from '../context/ThemeContext'
+
+import CoffeeDoodleDark from '../images/CoffeeDoodleDark.svg'
+import CoffeeDoodleLight from '../images/CoffeeDoodleLight.svg'
+import StrollingDoodleDark from '../images/StrollingDoodleDark.svg'
+import StrollingDoodleLight from '../images/StrollingDoodleLight.svg'
+import ZombieingDoodleDark from '../images/ZombieingDoodleDark.svg'
+import ZombieingDoodleLight from '../images/ZombieingDoodleLight.svg'
 
 const OPTIONS = [
 	'software engineer',
@@ -21,18 +26,18 @@ const OPTIONS = [
 export default () => {
 	const [index, setIndex] = useState(0)
 	const [img, setImg] = useState(null)
-
+	const theme = useContext(ThemeContext)[0]
 	const text = useTyping({ phrases: OPTIONS })
 
 	useEffect(() => {
 		changeImg()
-	}, [])
+	}, [theme])
 
 	const changeImg = () => {
 		const number = Math.floor(Math.random() * 3) + 1
-		if (number === 1) setImg(CoffeeDoodle)
-		if (number === 2) setImg(StrollingDoodle)
-		if (number === 3) setImg(ZombieingDoodle)
+		if (number === 1) setImg(theme === 'dark' ? CoffeeDoodleDark : CoffeeDoodleLight)
+		if (number === 2) setImg(theme === 'dark' ? StrollingDoodleDark : StrollingDoodleLight)
+		if (number === 3) setImg(theme === 'dark' ? ZombieingDoodleDark : ZombieingDoodleLight)
 	}
 
 	return (
@@ -43,7 +48,7 @@ export default () => {
 					<div className='row py-1 px-4 mb-2'>
 						<div className='col-sm-12 col-md-6 col-lg-8'>
 							<p className='text'>
-								<span className='blue-text'>Hola</span>, my name is
+								<span className='accent-text'>Hola</span>, my name is
 							</p>
 							<h1 className='title'>José Antonio González Rodríguez</h1>
 							<p className='text'>
@@ -54,7 +59,7 @@ export default () => {
 									</Fragment>
 								}
 								<span
-									className='blue-text'
+									className='accent-text'
 								>
 									{text}
 								</span>.
