@@ -6,6 +6,8 @@ import Head from './Head'
 import MoonEmoji from './MoonEmoji'
 import SunEmoji from './SunEmoji'
 import ThemeContext from '../context/ThemeContext'
+import LogoDark from '../images/LogoDark.svg'
+import LogoLight from '../images/LogoLight.svg'
 
 export default () => {
 	const [theme, setTheme] = useContext(ThemeContext)
@@ -13,7 +15,12 @@ export default () => {
 		<Fragment>
 			<Head />
 			<nav className='nav justify-content-between py-1 px-4'>
-				<Link className='navbar-brand' to='/'>JAGR</Link>
+				<Link className='navbar-brand' to='/'>
+					{theme === 'dark' ?
+						<LogoDark /> :
+						<LogoLight />
+					}
+				</Link>
 				<div className='d-inline-flex'>
 					<Toggle
 		        checked={theme === 'dark'}

@@ -6,11 +6,13 @@ import Layout from '../components/Layout'
 
 export default () => (
 	<Layout>
-		<div className='w-100 h-100 p-2 mx-auto'>
-		  <h2 className='title'>Upsi, wrong page</h2>
-		  <Link to={'/'}>
-		  	<p className='text'>Go back to safety</p>
-		  </Link>
-		</div>
+		<div className='row py-1 px-4'>
+			<div className='col-sm-12 col-md-6 col-lg-8'>
+	  		<h1 className='title'>Upsi, wrong page</h1>
+	  		<Link to={'/'} className='bold-text text'>
+	  			Go back to safety
+	  		</Link>
+	  	</div>
+	  </div>
 	</Layout>
 )
