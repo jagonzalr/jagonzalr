@@ -48,6 +48,14 @@ module.exports = {
         lang: 'en'
       }
     },
-    'gatsby-plugin-robots-txt'
+    'gatsby-plugin-robots-txt',
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /images/
+        }
+      }
+    }
   ]
 }

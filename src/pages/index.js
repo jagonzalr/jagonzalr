@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState, useRef, useContext } from 'react'
+import useInterval from 'use-interval'
 
 import CycleText from '../components/CycleText'
 import Layout from '../components/Layout'
@@ -13,25 +14,18 @@ import ZombieingDoodleLight from '../images/ZombieingDoodleLight.svg'
 
 export default () => {
 	const [index, setIndex] = useState(0)
-	const [doodles, setDoodles] = useState([])
-	const [img, setImg] = useState(null)
+	const [doodle, setDoodle] = useState(null)
 	const theme = useContext(ThemeContext)[0]
 
-	useEffect(() => {
-		const number = Math.floor(Math.random() * 3) + 1
-		if (number === 1) setDoodles([CoffeeDoodleDark, CoffeeDoodleLight])
-		if (number === 2) setDoodles([StrollingDoodleDark, StrollingDoodleLight])
-		if (number === 3) setDoodles([ZombieingDoodleDark, ZombieingDoodleLight])
-	}, [])
+	useInterval(() => {
+		setIndex(index + 1)
+	}, 2500)
 
 	useEffect(() => {
-		changeImg()
-	}, [doodles.length, theme])
-
-	const changeImg = () => {
-		const [darkDoodle, lightDoodle] = doodles
-		setImg(theme === 'dark' ? darkDoodle : lightDoodle)
-	}
+		if (index % 3 === 0) setDoodle('coffee')
+		if (index % 3 === 1) setDoodle('stroll')
+		if (index % 3 === 2) setDoodle('zombie')
+	}, [index])
 
 	return (
 		<Fragment>
@@ -45,7 +39,12 @@ export default () => {
 						<CycleText />
 					</div>
 					<div className='col-md-6 col-lg-4 d-none d-md-block'>
-						{img && <img src={img} className='img-fluid w-100 h-100' alt='Doodle Image' />}
+						{doodle === 'coffee' && theme === 'dark' && <CoffeeDoodleDark />}
+						{doodle === 'coffee' && theme === 'light' && <CoffeeDoodleLight />}
+						{doodle === 'stroll' && theme === 'dark' && <StrollingDoodleDark />}
+						{doodle === 'stroll' && theme === 'light' && <StrollingDoodleLight />}
+						{doodle === 'zombie' && theme === 'dark' && <ZombieingDoodleDark />}
+						{doodle === 'zombie' && theme === 'light' && <ZombieingDoodleLight />}
 					</div>
 				</div>
 				<div className='row justify-content-start py-1 px-4'>
