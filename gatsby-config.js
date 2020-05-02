@@ -56,6 +56,19 @@ module.exports = {
           include: /images/
         }
       }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'recipes',
+        path: `${__dirname}/src/projects/`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.mdx', '.md']
+      }
     }
   ]
 }

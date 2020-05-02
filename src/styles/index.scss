@@ -80,6 +80,12 @@ a {
 	@include font-size(2.75rem);
 }
 
+.subtitle {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  @include font-size(2.5rem);
+}
+
 .text {
 	margin-top: 0.8rem;
 	margin-bottom: 0.8rem;

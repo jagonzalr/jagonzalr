@@ -21,6 +21,7 @@ export default () => {
 						<LogoLight />
 					}
 				</Link>
+				<Link to='/projects'>Projects</Link>
 				<div className='d-inline-flex'>
 					<Toggle
 		        checked={theme === 'dark'}
