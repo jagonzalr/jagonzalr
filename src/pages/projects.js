@@ -6,11 +6,11 @@ import Layout from '../components/Layout'
 export default ({ data, location }) => (
 	<Layout>
     <div className='row py-1 px-4'>
-      <div className='col-sm-12'>
-    		<h2 className='subtitle'>Projects</h2>
+      <div className='col-sm-12' style={{ marginBottom: '2rem', marginTop: '1rem' }}>
+    		<h2 className='d-inline subtitle underline'>Projects</h2>
       </div>
   		{data.allMdx.edges.map(({ node }) => (
-        <div key={node.id} className='col-sm-12 mb-2'>
+        <div key={node.id} className='col-sm-12 my-1'>
         	<Link to={`/projects/${node.fields.slug}`}>
   	        <h4>{node.frontmatter.title}</h4>
           </Link>

@@ -7,7 +7,7 @@ export default () => (
 		style={{
 			fontSize: '0.9rem',
 			position: 'absolute',
-    	top: '-0.15rem',
+    	top: '0.05rem',
     	left: '-0.2em'
 		}}
 	>

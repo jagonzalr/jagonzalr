@@ -105,6 +105,10 @@ a {
     font-weight: 700;
 }
 
+.underline {
+  border-bottom: 3px solid var(--accentColor);
+}
+
 /*
 * React Select
 */
