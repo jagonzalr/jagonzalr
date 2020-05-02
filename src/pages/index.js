@@ -65,11 +65,11 @@ export default () => {
 					<p className='text'>
 						My tech stack includes{' '}
 						<a
-							href='https://nodejs.org/'
+							href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/'
 							target='_blank'
 							className='bold-text'
 						>
-							Node.js
+							Javascript
 						</a>,{' '}
 						<a
 							href='https://reactjs.org/'

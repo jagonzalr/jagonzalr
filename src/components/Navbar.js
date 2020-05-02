@@ -21,7 +21,8 @@ export default () => {
 						<LogoLight />
 					}
 				</Link>
-				<div className='d-inline-flex'>
+				<Link to='/projects' style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem' }}>Projects</Link>
+				<div className='d-inline-flex' style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem' }}>
 					<Toggle
 		        checked={theme === 'dark'}
 		        aria-label={theme === 'dark' ? 'Change to light theme' : 'Change to dark theme'}
