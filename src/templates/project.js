@@ -18,6 +18,7 @@ export default ({ data }) => {
 						className='bold-text text'
 						href={project.frontmatter.link}
 						target='_blank'
+						rel='noopener'
 					>
 						{project.frontmatter.link}
 					</a>

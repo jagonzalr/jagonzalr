@@ -51,9 +51,10 @@ export default () => {
 					<p className='text'>
 						I currently live in Cape Town building experiential learning at{' '}
 						<a
-							className='bold-text'
 							href='https://virtual-academies.com'
 							target='_blank'
+							className='bold-text'
+							rel='noopener'
 						>
 							Virtual Academies
 						</a>.
@@ -68,6 +69,7 @@ export default () => {
 							href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/'
 							target='_blank'
 							className='bold-text'
+							rel='noopener'
 						>
 							Javascript
 						</a>,{' '}
@@ -75,6 +77,7 @@ export default () => {
 							href='https://reactjs.org/'
 							target='_blank'
 							className='bold-text'
+							rel='noopener'
 						>
 							React
 						</a>,{' '}
@@ -82,6 +85,7 @@ export default () => {
 							href='https://www.certmetrics.com/amazon/public/badge.aspx?i=2&t=c&d=2020-01-20&ci=AWS00720188'
 							target='_blank'
 							className='bold-text'
+							rel='noopener'
 						>
 							AWS
 						</a>,{' '}
@@ -89,6 +93,7 @@ export default () => {
 							href='https://serverless.com/'
 							target='_blank'
 							className='bold-text'
+							rel='noopener'
 						>
 							Serverless
 						</a>
@@ -97,6 +102,7 @@ export default () => {
 							href='https://www.terraform.io/'
 							target='_blank'
 							className='bold-text'
+							rel='noopener'
 						>
 							Terraform
 						</a>.
@@ -111,6 +117,7 @@ export default () => {
 							className='bold-text'
 							href='https://github.com/jagonzalr'
 							target='_blank'
+							rel='noopener'
 						>
 							Github
 						</a>,{' '}
@@ -118,6 +125,7 @@ export default () => {
 							className='bold-text'
 							href='https://www.instagram.com/jagonzalr/'
 							target='_blank'
+							rel='noopener'
 						>
 							Instagram
 						</a>{' '}
@@ -126,6 +134,7 @@ export default () => {
 							className='bold-text'
 							href='https://www.linkedin.com/in/jagonzalr/'
 							target='_blank'
+							rel='noopener'
 						>
 							LinkedIn
 						</a>
@@ -136,8 +145,8 @@ export default () => {
 			<div className='row justify-content-end py-1 px-4'>
 				<div className='col col-md-8 col-lg-7'>
 					<p className='text'>
-						Made with <a className='bold-text' href='https://www.gatsbyjs.org/' target='_blank'>Gatsbyjs</a>,{' '}
-						doodles from <a className='bold-text' href='https://www.opendoodles.com/' target='_blank'>Open Doodles</a>.
+						Made with <a className='bold-text' href='https://www.gatsbyjs.org/' target='_blank' rel='noopener'>Gatsbyjs</a>,{' '}
+						doodles from <a className='bold-text' href='https://www.opendoodles.com/' target='_blank' rel='noopener'>Open Doodles</a>.
 					</p>
 				</div>
 			</div>
