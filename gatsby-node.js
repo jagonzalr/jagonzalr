@@ -19,7 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
 	const { createPage } = actions
   const result = await graphql(`
     {
-      projects: allMdx {
+      projects: allMdx(filter: {frontmatter: {type: {eq: "project"}}}) {
         edges {
           node {
             fields {
