@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState, useRef, useContext } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import useInterval from 'use-interval'
 
 import CycleText from '../components/CycleText'

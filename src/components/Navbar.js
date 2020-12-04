@@ -16,7 +16,10 @@ export default () => {
 				<Link className='navbar-brand small-text' to='/'>
 					{'< jagr />'}
 				</Link>
-				<Link to='/projects' style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem' }}>Projects</Link>
+				<div className='d-flex'>
+					<Link to='/projects' style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem', margin: '0 0.5em' }}>Projects</Link>
+					<Link to='/posts' style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem', margin: '0 0.5em' }}>Posts</Link>
+				</div>
 				<div className='d-inline-flex' style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem' }}>
 					<Toggle
 		        checked={theme === 'dark'}
