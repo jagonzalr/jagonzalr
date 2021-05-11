@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Bitter:400|Work+Sans:700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
 @import '~rfs/sass';
 
-$font-stack: 'Bitter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$font-bold-stack: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-bold-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 $background-color: #FCFCFC;
 $black-color: #252835;
@@ -26,7 +26,7 @@ $red-color: #E92628;
 }
 
 html {
-    font-size: 1.1rem;
+    font-size: 1.02rem;
     overflow-x: hidden;
     letter-spacing: 0.12rem;
 }
@@ -35,7 +35,7 @@ body {
     background: var(--bkgColor);
     color: var(--textColor);
     font-family: $font-stack;
-    font-size: 1.1rem;
+    font-size: 1.02rem;
     transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
 }
 
@@ -53,7 +53,7 @@ body.dark {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-bold-stack;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 img:not([src*=".svg"]), video {  
@@ -100,13 +100,13 @@ a {
 .accent-text {
 	color: var(--accentColor);
 	font-family: $font-bold-stack;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .bold-text {
 	color: var(--textColor);
 	font-family: $font-bold-stack;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .underline {
