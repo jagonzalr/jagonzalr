@@ -29,7 +29,7 @@ const Main = () => {
 
 	return (
 		<Layout>
-			<div className='row py-1 px-4 px-lg-5'>
+			<div className='row py-1 px-4'>
 				<div className='col-sm-12 col-md-6 col-lg-8'>
 					<p className='text'>
 						<span className='accent-text'>Hola</span>, my name is
@@ -46,7 +46,7 @@ const Main = () => {
 					{doodle === 'zombie' && theme === 'light' && <ZombieingDoodleLight />}
 				</div>
 			</div>
-			<div className='row justify-content-start py-1 px-4 px-lg-5'>
+			<div className='row justify-content-start py-1 px-4'>
 				<div className='col col-md-8 col-lg-7'>
 					<p className='text'>
 						I currently live in Cape Town building experiential learning at{' '}
@@ -70,7 +70,7 @@ const Main = () => {
 					</p>
 				</div>
 			</div>
-			<div className='row justify-content-end py-1 px-4 px-lg-5'>
+			<div className='row justify-content-end py-1 px-4'>
 				<div className='col col-md-8 col-lg-7'>
 					<p className='text'>
 						My tech stack includes{' '}
@@ -126,7 +126,7 @@ const Main = () => {
 					</p>
 				</div>
 			</div>
-			<div className='row justify-content-start py-1 px-4 px-lg-5'>
+			<div className='row justify-content-start py-1 px-4'>
 				<div className='col col-md-8 col-lg-7'>
 					<p className='text'>
 						Find me at{' '}
@@ -159,7 +159,7 @@ const Main = () => {
 					</p>
 				</div>
 			</div>
-			<div className='row justify-content-end py-1 px-4 px-lg-5'>
+			<div className='row justify-content-end py-1 px-4'>
 				<div className='col col-md-8 col-lg-7'>
 					<p className='text'>
 						Made with <a className='bold-text' href='https://www.gatsbyjs.org/' target='_blank' rel='noopener'>Gatsbyjs</a>,{' '}
