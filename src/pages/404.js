@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 
 import Layout from '../components/Layout'
 
-export default () => (
+const NotFound = () => (
 	<Layout>
 		<div className='row py-1 px-4'>
 			<div className='col-sm-12 col-md-6 col-lg-8'>
@@ -16,3 +16,5 @@ export default () => (
 	  </div>
 	</Layout>
 )
+
+export default NotFound
