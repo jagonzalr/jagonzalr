@@ -9,7 +9,8 @@ const OPTIONS = [
 	'casual gamer',
 	'bibliophile',
 	'Netflix binger',
-	'amateur photographer'
+	'amateur photographer',
+	'entrepeneur'
 ]
 
 const CycleText = () => {
@@ -19,7 +20,7 @@ const CycleText = () => {
 			and I'm{' '}
 			{!text.startsWith('A') &&
 				<Fragment>
-					{text.startsWith('a') ? 'an' : 'a'}{' '}
+					{(text.startsWith('a') || text.startsWith('e')) ? 'an' : 'a'}{' '}
 				</Fragment>
 			}
 			<span
