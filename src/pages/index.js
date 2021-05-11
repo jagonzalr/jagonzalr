@@ -12,7 +12,7 @@ import StrollingDoodleLight from '../images/StrollingDoodleLight.svg'
 import ZombieingDoodleDark from '../images/ZombieingDoodleDark.svg'
 import ZombieingDoodleLight from '../images/ZombieingDoodleLight.svg'
 
-export default () => {
+const Main = () => {
 	const [index, setIndex] = useState(0)
 	const [doodle, setDoodle] = useState(null)
 	const theme = useContext(ThemeContext)[0]
@@ -170,3 +170,5 @@ export default () => {
 		</Layout>
 	)
 }
+
+export default Main

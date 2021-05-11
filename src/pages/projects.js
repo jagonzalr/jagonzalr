@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 
-export default ({ data, location }) => (
+const Projects = ({ data, location }) => (
 	<Layout>
     <div className='row py-1 px-4'>
       <div className='col-sm-12' style={{ marginBottom: '2rem', marginTop: '1rem' }}>
@@ -20,6 +20,8 @@ export default ({ data, location }) => (
     </div>
 	</Layout>
 )
+
+export default Projects
 
 export const query = graphql`
   query {

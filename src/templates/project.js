@@ -4,7 +4,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import Layout from '../components/Layout'
 
-export default ({ data }) => {
+const Template = ({ data }) => {
 	const project = data.mdx
 	return (
 		<Layout>
@@ -32,6 +32,8 @@ export default ({ data }) => {
 		</Layout>
 	)
 }
+
+export default Template
 
 export const query = graphql`
   query($slug: String!) {
