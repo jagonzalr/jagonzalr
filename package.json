@@ -16,7 +16,6 @@
     "@mdx-js/mdx": "^1.6.0",
     "@mdx-js/react": "^1.6.0",
     "bootstrap": "^4.6.0",
-    "classnames": "^2.3.1",
     "dotenv": "^9.0.2",
     "gatsby": "^3.4.2",
     "gatsby-image": "^3.4.0",
