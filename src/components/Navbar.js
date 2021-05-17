@@ -9,7 +9,6 @@ import SunEmoji from './SunEmoji'
 import ThemeContext from '../context/ThemeContext'
 
 const Navbar = () => {
-	console.log(window.location.href)
 	const [theme, setTheme] = useContext(ThemeContext)
 	return (
 		<Fragment>
