@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 
-const Posts = ({ data, location }) => (
+const Posts = ({ data }) => (
 	<Layout>
     <div className='row py-1 px-4'>
       <div className='col-sm-12' style={{ marginBottom: '2rem', marginTop: '1rem' }}>
