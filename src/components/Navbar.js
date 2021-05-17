@@ -1,13 +1,14 @@
 import React, { Fragment, useEffect, useState, useContext } from 'react'
 import { Link } from 'gatsby'
 import Toggle from 'react-toggle'
+import classnames from 'classnames'
 
 import Head from './Head'
 import MoonEmoji from './MoonEmoji'
 import SunEmoji from './SunEmoji'
 import ThemeContext from '../context/ThemeContext'
 
-export default () => {
+const Navbar = () => {
 	const [theme, setTheme] = useContext(ThemeContext)
 	return (
 		<Fragment>
@@ -17,8 +18,24 @@ export default () => {
 					{'< jagr />'}
 				</Link>
 				<div className='d-flex'>
-					<Link to='/projects' style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem', margin: '0 0.5em' }}>Projects</Link>
-					<Link to='/posts' style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem', margin: '0 0.5em' }}>Posts</Link>
+					<Link
+						to='/projects'
+						style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem', margin: '0 0.5em' }}
+						className={classnames({
+							underline: window.location.href.includes('projects')
+						})}
+					>
+							Projects
+						</Link>
+					<Link
+						to='/posts'
+						style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem', margin: '0 0.5em' }}
+						className={classnames({
+							underline: window.location.href.includes('posts')
+						})}
+					>
+						Posts
+					</Link>
 				</div>
 				<div className='d-inline-flex' style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem' }}>
 					<Toggle
@@ -38,3 +55,5 @@ export default () => {
 		</Fragment>
 	)
 }
+
+export default Navbar
