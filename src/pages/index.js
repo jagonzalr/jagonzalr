@@ -34,7 +34,7 @@ const Main = () => {
 			<div className='row justify-content-start px-4'>
 				<div className='col col-md-12'>
 					<p className='text'>
-						I currently live in Lisbon building experiential learning at{' '}
+						I currently live in Lisbon building experiential, immersive, and collaborative learning at{' '}
 						<a
 							href='https://virtual-academies.com'
 							target='_blank'
@@ -43,7 +43,7 @@ const Main = () => {
 						>
 							Virtual Academies
 						</a>{' '}
-						{' '}the future of sustainable cultivation at{' '}
+						{' '}and intelligent horticultural automation at{' '}
 						<a
 							href='https://coretex.ag/'
 							target='_blank'
@@ -51,15 +51,6 @@ const Main = () => {
 							rel='noopener'
 						>
 							Coretex
-						</a>{' '}
-						{' '}and helping people generate transcripts in minutes with{' '}
-						<a
-							href='https://transcribeninja.com/'
-							target='_blank'
-							className='bold-text'
-							rel='noopener'
-						>
-							Transcribe Ninja
 						</a>.
 					</p>
 				</div>

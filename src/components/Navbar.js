@@ -23,12 +23,14 @@ const Navbar = () => {
 					>
 							Projects
 						</Link>
-					<Link
-						to='/posts'
+					<a
+						href='https://blog.jagonzalr.com'
+						target='_blank'
+						rel='noopener'
 						style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem', margin: '0 0.5em' }}
 					>
-						Posts
-					</Link>
+						Blog
+					</a>
 				</div>
 				<div className='d-inline-flex' style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem' }}>
 					<Toggle
