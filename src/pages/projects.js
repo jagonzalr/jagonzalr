@@ -10,11 +10,15 @@ const Projects = ({ data }) => (
     		<h2 className='d-inline subtitle underline'>Projects</h2>
       </div>
   		{data.allMdx.edges.map(({ node }) => (
-        <div key={node.id} className='col-sm-12 my-1'>
-        	<Link to={`/projects/${node.fields.slug}`}>
-  	        <h4>{node.frontmatter.title}</h4>
-          </Link>
-          <p>{node.frontmatter.tagline}</p>
+        <div key={node.id} className='col-sm-12 col-md-6 my-1'>
+          <div className='card'>
+            <div className='card-body'>
+              <Link to={`/projects/${node.fields.slug}`}>
+                <h5 className='card-title'>{node.frontmatter.title}</h5>
+              </Link>
+              <p className='card-text'>{node.frontmatter.tagline}</p>
+            </div>
+          </div>
         </div>
       ))}
     </div>

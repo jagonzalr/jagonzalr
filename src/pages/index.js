@@ -1,25 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react'
-import useInterval from 'use-interval'
+import React from 'react'
 
 import CycleText from '../components/CycleText'
 import Layout from '../components/Layout'
-import ThemeContext from '../context/ThemeContext'
 
 const Main = () => {
-	const [index, setIndex] = useState(0)
-	const [doodle, setDoodle] = useState(null)
-	const theme = useContext(ThemeContext)[0]
-
-	useInterval(() => {
-		setIndex(index + 1)
-	}, 2500)
-
-	useEffect(() => {
-		if (index % 3 === 0) setDoodle('coffee')
-		if (index % 3 === 1) setDoodle('stroll')
-		if (index % 3 === 2) setDoodle('zombie')
-	}, [index])
-
 	return (
 		<Layout>
 			<div className='row justify-content-start px-4'>
@@ -34,7 +18,7 @@ const Main = () => {
 			<div className='row justify-content-start px-4'>
 				<div className='col col-md-12'>
 					<p className='text'>
-						I currently live in Lisbon building experiential, immersive, and collaborative learning at{' '}
+						I currently live in Lisbon building experiential learning at{' '}
 						<a
 							href='https://virtual-academies.com'
 							target='_blank'
@@ -98,6 +82,14 @@ const Main = () => {
 							rel='noopener'
 						>
 							Terraform
+							</a>,{' '}
+						<a
+							href='https://github.com/features/actions'
+							target='_blank'
+							className='bold-text'
+							rel='noopener'
+						>
+							Github Actions
 						</a>{' '}and{' '}
 						<a
 							href='https://en.wikipedia.org/wiki/Systems_design'

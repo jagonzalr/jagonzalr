@@ -39,7 +39,6 @@
     "react-toggle": "^4.1.2",
     "rfs": "^9.0.6",
     "use-dark-theme": "^1.0.0",
-    "use-interval": "^1.2.1",
     "use-typing": "^1.0.3"
   },
   "devDependencies": {

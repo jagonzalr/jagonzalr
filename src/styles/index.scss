@@ -1,23 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&family=Newsreader:wght@800&display=swap');
 @import '~rfs/sass';
 
-$font-stack: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$font-bold-stack: 'Newsreader', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-stack: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol';
+$font-bold-stack: 'Newsreader', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol';
 
-$background-color: #FCFCFC;
+$background-color: #fcfcfc;
 $black-color: #252835;
 $blue-color: #2e27f8;
 $light-blue-color: #6f75f1;
-$green-color: #25CA6F;
-$yellow-color: #F2A74B;
-$red-color: #E92628;
+$green-color: #25ca6f;
+$yellow-color: #f2a74b;
+$red-color: #e92628;
 
 :root {
   --black: #252835;
   --white: #ffffff;
   --blue: #2e27f8;
   --light-blue: #878cf3;
-  --dark-white: #FEFEFE;
+  --dark-white: #fefefe;
 }
 
 ::selection {
@@ -26,17 +30,17 @@ $red-color: #E92628;
 }
 
 html {
-    font-size: 1.04rem;
-    overflow-x: hidden;
-    letter-spacing: 0.1rem;
+  font-size: 1.04rem;
+  overflow-x: hidden;
+  letter-spacing: 0.1rem;
 }
 
 body {
-    background: var(--bkgColor);
-    color: var(--textColor);
-    font-family: $font-stack;
-    font-size: 1.02rem;
-    transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+  background: var(--bkgColor);
+  color: var(--textColor);
+  font-family: $font-stack;
+  font-size: 1.02rem;
+  transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
 }
 
 body.light {
@@ -51,65 +55,89 @@ body.dark {
   --accentColor: var(--light-blue);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $font-bold-stack;
   font-weight: 800;
 }
 
-img:not([src*=".svg"]), video {  
-   filter: invert(100%);
+img:not([src*='.svg']),
+video {
+  filter: invert(100%);
 }
 
 a {
-	color: var(--textColor);
-	text-decoration: none;
+  color: var(--textColor);
+  text-decoration: none;
 
-	&:hover {
-		color: var(--accentColor);
+  &:hover {
+    color: var(--accentColor);
     text-decoration: none;
-	}
+  }
 }
 
 .container {
-  max-width: 720px;
+  max-width: 780px;
+}
+
+.card {
+  border: 1px solid var(--blue);
+  margin: 5px;
+  transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+
+  .card-body {
+    .card-text {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.dark {
+  .card {
+    background-color: var(--black);
+    border: 1px solid var(--light-blue);
+  }
 }
 
 .navbar-brand {
-	font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
 .title {
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-	@include font-size(2.75rem);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  @include font-size(2.75rem);
 }
 
 .subtitle {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  @include font-size(2.5rem);
+  @include font-size(2.2rem);
 }
 
 .text {
-	margin-top: 0.8rem;
-	margin-bottom: 0.8rem;
-	@include font-size(1.55rem);
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+  @include font-size(1.55rem);
 }
 
 .small-text {
   @include font-size(1.2rem);
 }
 
-
 .accent-text {
-	color: var(--accentColor);
-	font-family: $font-bold-stack;
-    font-weight: 800;
+  color: var(--accentColor);
+  font-family: $font-bold-stack;
+  font-weight: 800;
 }
 
 .bold-text {
-	color: var(--textColor);
-	font-family: $font-bold-stack;
+  color: var(--textColor);
+  font-family: $font-bold-stack;
   font-weight: 800;
 }
 
@@ -138,7 +166,7 @@ a {
   -ms-user-select: none;
   user-select: none;
 
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
 }
 
