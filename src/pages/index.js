@@ -18,7 +18,16 @@ const Main = () => {
 			<div className='row justify-content-start px-4'>
 				<div className='col col-md-12'>
 					<p className='text'>
-						I currently live in Lisbon building experiential learning at{' '}
+						I currently live in Lisbon and work at {' '}
+						<a
+							href='https://awesome-source.com/'
+							target='_blank'
+							className='bold-text'
+							rel='noopener'
+						>
+							Awesome Source
+						</a>{' '}
+						where I build experiential learning with{' '}
 						<a
 							href='https://virtual-academies.com'
 							target='_blank'
@@ -27,7 +36,7 @@ const Main = () => {
 						>
 							Virtual Academies
 						</a>{' '}
-						{' '}and intelligent horticultural automation at{' '}
+						{' '}and intelligent horticultural automation with{' '}
 						<a
 							href='https://coretex.ag/'
 							target='_blank'
