@@ -12,23 +12,31 @@ module.exports = {
     siteUrl: 'https://jagonzalr.com'
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-  	`gatsby-plugin-sass`,
+    'gatsby-plugin-react-helmet',
+  	'gatsby-plugin-sass',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-offline',
+    'gatsby-plugin-robots-txt',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: 'projects',
+        path: `${__dirname}/src/projects/`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
 	    resolve: 'gatsby-plugin-google-analytics',
 	    options: {
 	      trackingId: 'UA-111640764-1'
 	    }
-	  },
+    },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en'
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -40,29 +48,6 @@ module.exports = {
         display: `minimal-ui`,
         icon: 'src/images/favicon.png'
       }
-    },
-    'gatsby-plugin-offline',
-    {
-      resolve: 'gatsby-plugin-html-attributes',
-      options: {
-        lang: 'en'
-      }
-    },
-    'gatsby-plugin-robots-txt',
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: /images/
-        }
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'projects',
-        path: `${__dirname}/src/projects/`,
-      },
     },
     {
       resolve: 'gatsby-plugin-mdx',
