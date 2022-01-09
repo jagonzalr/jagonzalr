@@ -5,28 +5,28 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Layout from '../components/Layout'
 
 const Template = ({ data }) => {
-	const project = data.mdx
+	const file = data.mdx
 	return (
 		<Layout>
 			<div className='row py-1 px-4'>
       	<div className='col-sm-12' style={{ marginBottom: '1rem', marginTop: '1rem' }}>
-					<h2 className='d-inline subtitle underline'>{project.frontmatter.title}</h2>
+					<h2 className='d-inline subtitle underline'>{file.frontmatter.title}</h2>
 				</div>
 				<div className='col-sm-12'>
-					<p className='text'>{project.frontmatter.tagline}</p>
+					<p className='text'>{file.frontmatter.tagline}</p>
 					<a
 						className='bold-text text'
-						href={project.frontmatter.link}
+						href={file.frontmatter.link}
 						target='_blank'
 						rel='noopener'
 					>
-						{project.frontmatter.link}
+						{file.frontmatter.link}
 					</a>
 				</div>
 			</div>
 			<div className='row py-1 px-4 mt-3'>
 				<div className='col-sm-12'>
-					<MDXRenderer>{project.body}</MDXRenderer>
+					<MDXRenderer>{file.body}</MDXRenderer>
 				</div>
 			</div>
 		</Layout>

@@ -17,12 +17,22 @@ const Navbar = () => {
 					{'< jagr />'}
 				</Link>
 				<div className='d-flex'>
-					<Link
-						to='/projects'
-						style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem', margin: '0 0.5em' }}
-					>
-							Projects
-						</Link>
+					<div className='dropdown' style={{ paddingTop: '0.3125rem', paddingBottom: '0.3125rem', margin: '0 0.5em' }}>
+						<a className='dropdown-toggle' type='button' id='moreButton' data-bs-toggle='dropdown' aria-expanded='false'>
+							More
+						</a>
+						<ul className='dropdown-menu' aria-labelledby='moreButton'>
+							<li>
+								<Link className='dropdown-item' to='/projects'>Projects</Link>
+							</li>
+							<li>
+								<Link className='dropdown-item' to='/open-source'>Open Source</Link>
+							</li>
+							<li>
+								<Link className='dropdown-item' to='/saas'>SaaS</Link>
+							</li>
+						</ul>
+					</div>
 					<a
 						href='https://blog.jagonzalr.com'
 						target='_blank'

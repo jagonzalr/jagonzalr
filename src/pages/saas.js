@@ -3,19 +3,19 @@ import { graphql } from 'gatsby'
 
 import Section from '../components/Section'
 
-const Projects = ({ data }) => (
+const Saas = ({ data }) => (
   <Section
     data={data}
-    section={'projects'}
-    title={'Projects'}
+    section={'saas'}
+    title={'SaaS'}
   />
 )
 
-export default Projects
+export default Saas
 
 export const query = graphql`
   query {
-    allMdx(sort: {fields: frontmatter___title, order: ASC}, filter: { frontmatter: { type: { eq: "project" } } }) {
+    allMdx(sort: {fields: frontmatter___title, order: ASC}, filter: { frontmatter: { type: { eq: "saas" } } }) {
       totalCount
       edges {
         node {
