@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans&family=Newsreader:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
 @import '~rfs/sass';
 
-$font-stack: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+$font-stack: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
   Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
   'Segoe UI Symbol';
-$font-bold-stack: 'Newsreader', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-  Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+$font-bold-stack: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
   'Segoe UI Symbol';
 
 $background-color: #fcfcfc;
@@ -62,7 +62,7 @@ h4,
 h5,
 h6 {
   font-family: $font-bold-stack;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 img:not([src*='.svg']),
@@ -132,13 +132,13 @@ a {
 .accent-text {
   color: var(--accentColor);
   font-family: $font-bold-stack;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .bold-text {
   color: var(--textColor);
   font-family: $font-bold-stack;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .underline {

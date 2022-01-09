@@ -14,12 +14,17 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  const projectTemplate = path.resolve('./src/templates/project.js')
+  const fileTemplate = path.resolve('./src/templates/file.js')
+  await createPages('open-source', 'open-source', graphql, actions, fileTemplate)
+  await createPages('project', 'projects', graphql, actions, fileTemplate)
+  await createPages('saas', 'saas', graphql, actions, fileTemplate)
+}
 
+async function createPages(filter, path, graphql, actions, fileTemplate) {
 	const { createPage } = actions
   const result = await graphql(`
     {
-      projects: allMdx(filter: {frontmatter: {type: {eq: "project"}}}) {
+      files: allMdx(filter: {frontmatter: {type: {eq: "${filter}"}}}) {
         edges {
           node {
             fields {
@@ -40,11 +45,11 @@ exports.createPages = async ({ graphql, actions }) => {
     return
   }
 
-  const projects = result.data.projects.edges
-  projects.forEach(({ node }) => {
+  const files = result.data.files.edges
+  files.forEach(({ node }) => {
     createPage({
-      path: `/projects/${node.fields.slug}`,
-      component: projectTemplate,
+      path: `/${path}/${node.fields.slug}`,
+      component: fileTemplate,
       context: {
         slug: node.fields.slug
       }
