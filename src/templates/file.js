@@ -5,38 +5,43 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Layout from '../components/Layout'
 
 const Template = ({ data }) => {
-	const file = data.mdx
-	return (
-		<Layout>
-			<div className='row py-1 px-4'>
-      	<div className='col-sm-12' style={{ marginBottom: '1rem', marginTop: '1rem' }}>
-					<h2 className='d-inline subtitle underline'>{file.frontmatter.title}</h2>
-				</div>
-				<div className='col-sm-12'>
-					<p className='text'>{file.frontmatter.tagline}</p>
-					<a
-						className='bold-text text'
-						href={file.frontmatter.link}
-						target='_blank'
-						rel='noopener'
-					>
-						{file.frontmatter.link}
-					</a>
-				</div>
-			</div>
-			<div className='row py-1 px-4 mt-3'>
-				<div className='col-sm-12'>
-					<MDXRenderer>{file.body}</MDXRenderer>
-				</div>
-			</div>
-		</Layout>
-	)
+  const file = data.mdx
+  return (
+    <Layout>
+      <div className="row py-1 px-4">
+        <div
+          className="col-sm-12"
+          style={{ marginBottom: '1rem', marginTop: '1rem' }}
+        >
+          <h2 className="d-inline subtitle underline">
+            {file.frontmatter.title}
+          </h2>
+        </div>
+        <div className="col-sm-12">
+          <p className="text">{file.frontmatter.tagline}</p>
+          <a
+            className="bold-text text"
+            href={file.frontmatter.link}
+            target="_blank"
+            rel="noopener"
+          >
+            {file.frontmatter.link}
+          </a>
+        </div>
+      </div>
+      <div className="row py-1 px-4 mt-3">
+        <div className="col-sm-12">
+          <MDXRenderer>{file.body}</MDXRenderer>
+        </div>
+      </div>
+    </Layout>
+  )
 }
 
 export default Template
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
       frontmatter {
@@ -46,4 +51,4 @@ export const query = graphql`
       }
     }
   }
- `
+`
