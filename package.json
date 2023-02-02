@@ -32,17 +32,16 @@
     "gatsby-plugin-sharp": "4.14.1",
     "gatsby-source-filesystem": "4.14.0",
     "gatsby-transformer-sharp": "4.14.0",
-    "node-sass": "6.0.1",
     "prettier": "2.6.2",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-helmet": "^6.0.0",
     "react-toggle": "^4.1.2",
     "rfs": "^9.0.6",
+    "sass": "^1.58.0",
     "use-dark-theme": "^1.0.1",
     "use-typing": "^1.0.4"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/jagonzalr/jagonzalr"
