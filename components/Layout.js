@@ -72,7 +72,7 @@ export default function Layout({ children, section = 'home' }) {
               className={styles.borderCircle}
               height={144}
               width={144}
-              alt=''
+              alt='jagonzalr'
             />
             <h1 className={utilStyles.heading}>{name}</h1>
           </>
