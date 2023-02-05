@@ -1,0 +1,12 @@
+.heading {
+  color: #222;
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+}
+
+.padding1px {
+  padding-top: 1px;
+}
