@@ -17,7 +17,7 @@ export default function OpenSource({ data }) {
       data={data}
       section={{
         id: 'open-source',
-        title: 'Open Source'
+        title: 'Open Source Software'
       }}
     />
   )
