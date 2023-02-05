@@ -40,11 +40,7 @@
   margin: 0.8rem;
 }
 
-.socialLink {
-  font-size: 1rem;
-  text-decoration: underline;
-}
-
 .socialLink:hover {
   color: #E84855;
+  text-decoration: underline;
 }
