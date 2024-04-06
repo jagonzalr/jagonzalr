@@ -1,12 +1,12 @@
-import { Inter } from '@next/font/google'
+import { Jost } from '@next/font/google'
 
 import '../styles/global.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const jost = Jost({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className={inter.className}>
+    <div className={jost.className}>
       <Component {...pageProps} />
     </div>
   )
