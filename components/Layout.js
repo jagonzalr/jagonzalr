@@ -16,6 +16,10 @@ const SOCIAL_LINKS = [
   {
     url: 'https://www.linkedin.com/in/jagonzalr/',
     title: 'LinkedIn'
+  },
+  {
+    url: 'https://www.producthunt.com/@jagonzalr',
+    title: 'Product Hunt'
   }
 ]
 

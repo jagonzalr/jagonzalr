@@ -72,7 +72,10 @@ export default function Home({ types }) {
           <strong>Adventure Time</strong>.
         </p>
         <section className={`${styles.text} ${utilStyles.padding1em}`}>
-          <p>Some of my skills, not in any order:</p>
+          <p>
+            With more than 10+ years of experience this are ome of my skills,
+            not in any order:
+          </p>
           <ul>
             {SKILLS.map(skill => (
               <li className={styles.listItem} key={skill}>
