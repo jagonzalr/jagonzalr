@@ -19,6 +19,8 @@ export async function getStaticProps() {
 const SKILLS = [
   'AWS',
   'Serverless Architecture',
+  'Event-driven Architecture',
+  'Microservices',
   'Terraform',
   'Node.js',
   'React',
@@ -73,7 +75,7 @@ export default function Home({ types }) {
         </p>
         <section className={`${styles.text} ${utilStyles.padding1em}`}>
           <p>
-            With more than 10+ years of experience this are ome of my skills,
+            With more than 10+ years of experience this are some of my skills,
             not in any order:
           </p>
           <ul>
