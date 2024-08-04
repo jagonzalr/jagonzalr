@@ -87,7 +87,6 @@ export default function Layout({ children, section = 'home' }) {
           <h2 className={styles.backToHomeText}>{name}</h2>
         </Link>
       )}
-      <main>{children}</main>
       {isMainSection(section) && (
         <div className={styles.backToHome}>
           <Link href='/'>← Back to home</Link>
@@ -98,6 +97,7 @@ export default function Layout({ children, section = 'home' }) {
           <Link href={`/${section.split(':')[0]}`}>← Go back</Link>
         </div>
       )}
+      <main>{children}</main>
     </div>
   )
 }

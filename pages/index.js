@@ -38,13 +38,13 @@ export default function Home({ types }) {
         <p>
           Mexican living in Porto working at{' '}
           <a
-            href='https://iyris.com/'
+            href='https://sosafe-awareness.com/'
             target='_blank'
             rel='nofollow noopener noreferrer'
           >
-            Iyris
-          </a>{' '}
-          helping to feed the world sustainably.
+            SoSafe
+          </a>
+          , the leading human risk management platform.
         </p>
         <section className={`${styles.text} ${utilStyles.padding1px}`}>
           <ul className={styles.list}>
@@ -68,12 +68,11 @@ export default function Home({ types }) {
       </section>
       <section className={styles.text}>
         <p>
-          I obviously enjoy spicy food, but also like to read{' '}
-          <strong>Sci-Fi / Fantasy</strong> books, play{' '}
-          <strong>action / adventure / RPG</strong> video games, swim and{' '}
+          I enjoy 🌶️ food, reading <strong>Sci-Fi / Fantasy</strong> 📚, playing{' '}
+          <strong>action/adventure / RPG</strong> 🕹️, 🏊‍♂️ and{' '}
           <strong>Adventure Time</strong>.
         </p>
-        <section className={`${styles.text} ${utilStyles.padding1em}`}>
+        {/* <section className={`${styles.text} ${utilStyles.padding1em}`}>
           <p>
             With more than 10+ years of experience this are some of my skills,
             not in any order:
@@ -85,7 +84,7 @@ export default function Home({ types }) {
               </li>
             ))}
           </ul>
-        </section>
+        </section> */}
       </section>
     </Layout>
   )
