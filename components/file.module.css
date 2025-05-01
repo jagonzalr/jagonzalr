@@ -1,5 +1,5 @@
 .tagline {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: #222;
@@ -8,7 +8,7 @@
 
 .markdown > p {
   margin: 1rem 0;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   line-height: 1.5;
 }
 
@@ -19,5 +19,5 @@
 }
 
 .markdown > pre > code {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
