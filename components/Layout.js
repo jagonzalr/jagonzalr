@@ -53,7 +53,7 @@ export default function Layout({ children, section = 'home' }) {
       {section === 'home' && (
         <header className={styles.header}>
           <>
-            <section className={`${styles.text} ${utilStyles.padding1px}`}>
+            <section className={`${styles.text} ${utilStyles.padding1em}`}>
               <ul className={styles.list}>
                 {SOCIAL_LINKS.map(({ url, title }) => (
                   <li className={styles.listItem} key={title}>
@@ -72,7 +72,7 @@ export default function Layout({ children, section = 'home' }) {
             </section>
             <Image
               priority
-              src='/images/profile.jpeg'
+              src='/images/selfie.png'
               className={styles.borderCircle}
               height={144}
               width={144}

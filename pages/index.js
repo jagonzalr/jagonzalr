@@ -23,9 +23,11 @@ const SKILLS = [
   'Microservices',
   'Terraform',
   'Node.js',
+  'Typescript',
   'React',
   'Redux',
-  'GraphQL'
+  'GraphQL',
+  'Prompt Engineering'
 ]
 
 export default function Home({ types }) {
@@ -70,7 +72,7 @@ export default function Home({ types }) {
         <p>
           I enjoy 🌶️ food, reading <strong>Sci-Fi / Fantasy</strong> 📚, playing{' '}
           <strong>action/adventure / RPG</strong> 🕹️, 🏊‍♂️ and{' '}
-          <strong>Adventure Time</strong>.
+          <strong>Andor</strong>.
         </p>
         {/* <section className={`${styles.text} ${utilStyles.padding1em}`}>
           <p>
