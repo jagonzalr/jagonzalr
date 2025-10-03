@@ -1,5 +1,5 @@
 ---
-title: CosyNums
+title: Semanta11y
 tagline: Make your website accessible to everyone.
 link: https://semanta11y.com/
 type: saas
