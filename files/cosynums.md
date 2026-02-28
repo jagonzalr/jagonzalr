@@ -2,7 +2,7 @@
 title: CosyNums
 tagline: Your favourite recipes in one place.
 link: https://cosynums.com/
-type: saas
+type: projects
 ---
 
 Save recipes to your digital cookbook, plan your upcoming meals and create grocery lists.

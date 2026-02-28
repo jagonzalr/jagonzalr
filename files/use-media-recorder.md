@@ -2,7 +2,7 @@
 title: useMediaRecorder
 tagline: MediaRecorder API using React hooks.
 link: https://www.npmjs.com/package/use-media-recorder
-type: open-source
+type: open-source-legacy
 ---
 
 Supports both video + audio and audio only recordings.
