@@ -1,0 +1,87 @@
+---
+// Learn about using Astro layouts:
+// https://docs.astro.build/en/basics/layouts/
+
+import { getImage } from 'astro:assets'
+import Footer from '../components/Footer.astro'
+// Component Imports
+import MainHead from '../components/MainHead.astro'
+import Nav from '../components/Nav.astro'
+import simonstownImg from '../images/simonstown-jagonzalr.jpg'
+
+interface Props {
+  title?: string | undefined
+  description?: string | undefined
+}
+
+const { title, description } = Astro.props
+
+const bgMain800 = await getImage({
+  src: simonstownImg,
+  format: 'webp',
+  width: 800
+})
+const bgMain1440 = await getImage({
+  src: simonstownImg,
+  format: 'webp',
+  width: 1440
+})
+---
+
+<html lang='en'>
+  <head>
+    <MainHead title={title} description={description} />
+  </head>
+  <body>
+    <div class='stack backgrounds'>
+      <Nav />
+      <slot />
+      <Footer />
+    </div>
+
+    <script>
+      // Add "loaded" class once the document has completely loaded.
+      addEventListener('load', () =>
+        document.documentElement.classList.add('loaded')
+      )
+    </script>
+
+    <style
+      define:vars={{
+        bgMain800: `url(${bgMain800.src})`,
+        bgMain1440: `url(${bgMain1440.src})`
+      }}
+    >
+      :root {
+        /* --bg-image-main: var(--bgMain800); */
+        --bg-scale: 1.68;
+        --bg-gradient-size: calc(var(--bg-scale) * 100%);
+      }
+
+      @media (min-width: 50em) {
+        :root {
+          --bg-scale: 1;
+          /* --bg-image-main: var(--bgMain1440); */
+        }
+      }
+
+      .backgrounds {
+        min-height: 100%;
+        isolation: isolate;
+        /* background:
+          var(--bg-image-main) top center / var(--bg-gradient-size) no-repeat,
+          var(--gray-999); */
+        background-blend-mode: normal, normal;
+      }
+
+      @media (forced-colors: active) {
+        /* Deactivate custom backgrounds for high contrast users. */
+        .backgrounds {
+          background: none;
+          background-blend-mode: none;
+          --bg-gradient-size: none;
+        }
+      }
+    </style>
+  </body>
+</html>
