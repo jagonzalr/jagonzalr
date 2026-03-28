@@ -16,7 +16,7 @@ tags:
 
 Your favourite recipes in one place.
 
-Save recipes to your <a href="https://www.cosynums.com" target="_blank">digital cookbook</a>, plan your upcoming meals and create grocery lists.
+Save recipes to your [digital cookbook](https://www.cosynums.com), plan your upcoming meals and create grocery lists.
 
 The backend is written in Typescript with Terraform as IaC and backed by AWS Lambda.
 

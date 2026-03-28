@@ -9,7 +9,6 @@ import Hero from '../components/Hero.astro'
 import Icon from '../components/Icon.astro'
 import Pill from '../components/Pill.astro'
 import PortfolioPreview from '../components/PortfolioPreview.astro'
-import Skills from '../components/Skills.astro'
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro'
 
@@ -36,11 +35,6 @@ const projects = (await getCollection('work'))
             <strong>action/adventure / RPG</strong> 🕹️, 🏊‍♂️ and<!-- -->
             <strong>Andor</strong>.
           </p>
-          <div class='roles'>
-            <Pill><Icon icon='github-logo' size='1.33em' /> Github</Pill>
-            <Pill><Icon icon='linkedin-logo' size='1.33em' /> LinkedIn</Pill>
-            <Pill><Icon icon='code' size='1.33em' /> Product Hunt</Pill>
-          </div>
         </Hero>
 
         <img
@@ -50,14 +44,12 @@ const projects = (await getCollection('work'))
           src='/assets/portrait.jpg'
         />
       </header>
-
-      <Skills />
     </div>
 
     <main class='wrapper stack gap-20 lg:gap-48'>
       <section class='section with-cta'>
         <header class='section-header stack gap-2 lg:gap-4'>
-          <h3>Selected Work</h3>
+          <h3>Featured Projects</h3>
           <p>
             Take a look below at some of my featured work from the past few
             years.
@@ -81,34 +73,6 @@ const projects = (await getCollection('work'))
             View All
             <Icon icon='arrow-right' size='1.2em' />
           </CallToAction>
-        </div>
-      </section>
-
-      <section class='section'>
-        <header class='section-header stack gap-2 lg:gap-4'>
-          <h3>Mentions</h3>
-          <p>
-            I have been fortunate enough to receive praise for my work in
-            several publications. Take a look below to learn more.
-          </p>
-        </header>
-
-        <div class='gallery'>
-          <Grid variant='small'>
-            {
-              [
-                'Medium',
-                'BuzzFeed',
-                'The Next Web',
-                'awwwards.',
-                'TechCrunch'
-              ].map(brand => (
-                <li class='mention-card'>
-                  <p>{brand}</p>
-                </li>
-              ))
-            }
-          </Grid>
         </div>
       </section>
     </main>
@@ -164,7 +128,6 @@ const projects = (await getCollection('work'))
     display: grid;
     gap: 2rem;
   }
-
 
   .section-header {
     justify-self: center;
