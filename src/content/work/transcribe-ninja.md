@@ -6,8 +6,9 @@ img_alt: Soft pink and baby blue water ripples together in a subtle texture.
 description: |
   Create AI-generated transcripts in minutes.
 tags:
-  - Design
-  - Branding
+  - AWS Transcribe
+  - AWS Translate
+  - React
 ---
 
 Transcribe Ninja uses the latest AI technology on speech recognition.

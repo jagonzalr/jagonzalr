@@ -6,8 +6,10 @@ img_alt: Soft pink and baby blue water ripples together in a subtle texture.
 description: |
   Make your website accessible to everyone.
 tags:
-  - Design
-  - Branding
+  - Typescript
+  - Terraform as IaC
+  - AWS Lambda
+  - React
 ---
 
 Semanta11y gives you instant accessibility reports for your website URLs, with clear steps to fix issues and meet WCAG and EN 301 549 standards.

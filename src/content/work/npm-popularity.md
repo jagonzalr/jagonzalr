@@ -4,14 +4,16 @@ publishDate: 2019-10-02 00:00:00
 img: /assets/stock-4.jpg
 img_alt: Soft pink and baby blue water ripples together in a subtle texture.
 description: |
-  Calculate costs of your meetings.
+  The most popular NPM packages.
 tags:
-  - Design
-  - Branding
+  - AWS Lambda in Go
+  - Terraform infrastructure
+  - React
+  - Redux-Toolkit
 ---
 
-Technologies used were AWS Lambda in JS, Serverless Frmawork and a Cloudwatch Event cron job to get the most recent exchange rates.
+Technologies used were AWS Lambda in Go and Terraform for infrastructure.
 
-Made with React, Redux, and Redux-Saga, styled with Tailwindcss and deployed with Netlify.
+Made with React and Redux-Toolkit, styled with Tailwind CSS and deployed with Netlify.
 
-https://meetingcosts.jagonzalr.com/
+[Link](https://npmpopularity.jagonzalr.com/)

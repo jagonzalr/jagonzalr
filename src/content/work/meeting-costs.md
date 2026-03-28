@@ -6,12 +6,14 @@ img_alt: Soft pink and baby blue water ripples together in a subtle texture.
 description: |
   Calculate costs of your meetings.
 tags:
-  - Design
-  - Branding
+  - AWS Lambda in JS
+  - Serverless Framework
+  - React
+  - Redux
 ---
 
-Technologies used were AWS Lambda in JS, Serverless Frmawork and a Cloudwatch Event cron job to get the most recent exchange rates.
+Technologies used were AWS Lambda in JS, Serverless Framework and a Cloudwatch Event cron job to get the most recent exchange rates.
 
-Made with React, Redux, and Redux-Saga, styled with Tailwindcss and deployed with Netlify.
+Made with React, Redux, and Redux-Saga, styled with Tailwind CSS and deployed with Netlify.
 
 [Link](https://meetingcosts.jagonzalr.com/)

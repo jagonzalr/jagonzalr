@@ -6,8 +6,9 @@ img_alt: Soft pink and baby blue water ripples together in a subtle texture.
 description: |
   Open Source Licenses using Github's Licenses API.
 tags:
-  - Design
-  - Branding
+  - Gatsby
+  - Bootstrap
+  - Netlify
 ---
 
 Licence pages made automatically with Github API.
