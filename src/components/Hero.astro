@@ -10,14 +10,12 @@ const { align = 'center', tagline, title } = Astro.props
 
 <div class:list={['hero stack gap-4', align]}>
   <div class='stack gap-4' style={{ position: 'absolute', left: 0 }}>
-    <div style={{ zIndex: 2, position: 'relative' }}>
+    <div style={{ zIndex: 2, position: 'relative', marginInlineEnd: '20rem' }}>
       <div
         class='decorative-hero-bg-container'
         aria-hidden='true'
         style={{
           zIndex: 1,
-          // height: '100%',
-          // width: '100%',
           position: 'absolute',
           top: '-1rem',
           right: '-1rem',
@@ -44,20 +42,20 @@ const { align = 'center', tagline, title } = Astro.props
         <div
           style={{
             position: 'absolute',
-            top: 0,
+            top: '0.8rem',
             bottom: 0,
             left: 0,
             right: '7rem',
-            zIndex: 1
+            zIndex: 1,
+            opacity: 0.5
           }}
         >
           {
-            Array.from({ length: 11 }).map((_, i) => (
+            Array.from({ length: 16 }).map((_, i) => (
               <hr
                 style={{
-                  borderBottom: '2px solid #a9978f',
-                  marginBottom: '1rem',
-                  marginTop: '1rem'
+                  borderBottom: '1px solid #a9978f',
+                  marginBottom: '0.7rem'
                 }}
               />
             ))

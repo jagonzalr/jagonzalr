@@ -23,20 +23,13 @@ const projects = (await getCollection('work'))
 
 <BaseLayout>
   <div class='stack gap-20 lg:gap-48'>
-    <div class='wrapper stack gap-8 lg:gap-20'>
-      <header class='hero' style={{ height: '50vh' }}>
+    <div class='gap-8 lg:gap-20 background-image'>
+      <header class='hero' style={{ height: '100%' }}>
         <Hero
           title='Jose Antonio González Rodríguez'
           tagline='Mexican living in Porto working at SoSafe, the leading human risk management platform. I enjoy 🌶️ food, reading Sci-Fi / Fantasy 📚, playing action/adventure / RPG 🕹️, 🏊‍♂️ and Andor.'
           align='start'
         />
-
-        <!-- <img
-          alt='Jose Antonio González Rodríguez portrait photo'
-          width='480'
-          height='620'
-          src='/assets/portrait.jpg'
-        /> -->
       </header>
     </div>
 
@@ -116,6 +109,12 @@ const projects = (await getCollection('work'))
     }
 
     /* ====================================================== */
+    .background-image {
+      min-height: 20rem;
+      height: 100vh;
+      background: var(--bg-image-main) top center;
+      background-size: cover;
+    }
 
     .section {
       display: grid;
