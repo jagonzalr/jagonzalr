@@ -150,12 +150,6 @@ const { tagline, title } = Astro.props
     padding-left: 0;
   }
 
-  .title,
-  .tagline {
-    margin-inline: auto;
-    margin-inline-start: 0rem;
-  }
-
   .tagline {
     width: 37ch;
     max-width: 50vw;
@@ -174,9 +168,9 @@ const { tagline, title } = Astro.props
   }
 
   @media (min-width: 50em) {
-    .start .title,
-    .start .tagline {
-      margin-left: 1rem;
+    .title,
+    .tagline {
+      margin-inline-start: 2rem;
     }
 
     .title {
@@ -189,9 +183,9 @@ const { tagline, title } = Astro.props
   }
 
   @media (min-width: 80em) {
-    .start .title,
-    .start .tagline {
-      margin-left: 4rem;
+    .title,
+    .tagline {
+      margin-inline-start: 4rem;
     }
 
     .title {
