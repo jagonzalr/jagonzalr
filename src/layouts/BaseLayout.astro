@@ -53,7 +53,7 @@ const bgMain1440 = await getImage({
       }}
     >
       :root {
-        /* --bg-image-main: var(--bgMain800); */
+        --bg-image-main: var(--bgMain800);
         --bg-scale: 1.68;
         --bg-gradient-size: calc(var(--bg-scale) * 100%);
       }
@@ -61,16 +61,16 @@ const bgMain1440 = await getImage({
       @media (min-width: 50em) {
         :root {
           --bg-scale: 1;
-          /* --bg-image-main: var(--bgMain1440); */
+          --bg-image-main: var(--bgMain1440);
         }
       }
 
       .backgrounds {
         min-height: 100%;
         isolation: isolate;
-        /* background:
-          var(--bg-image-main) top center / var(--bg-gradient-size) no-repeat,
-          var(--gray-999); */
+        background:
+          var(--bg-gradient-size) no-repeat,
+          var(--gray-999);
         background-blend-mode: normal, normal;
       }
 
