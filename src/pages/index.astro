@@ -29,9 +29,9 @@ const projects = (await getCollection('work'))
       </header>
     </div>
 
-    <main class='wrapper stack gap-20 lg:gap-48'>
+    <main class='wrapper stack'>
       <section class='section'>
-        <div>
+        <div style={{ height: '100%' }}>
           <div
             class='background-image-featured'
             style={{ position: 'relative' }}
@@ -76,7 +76,7 @@ const projects = (await getCollection('work'))
   <style>
     .wrapper {
       max-width: 120rem;
-      padding-inline: 5%;
+      padding: 5%;
     }
 
     .hero {
@@ -140,7 +140,7 @@ const projects = (await getCollection('work'))
 
     .background-image-featured {
       margin-top: 1.3rem;
-      min-height: 50rem;
+      min-height: 35rem;
       height: 85vh;
       max-height: 75rem;
       background:
@@ -162,7 +162,7 @@ const projects = (await getCollection('work'))
 
     .section {
       display: grid;
-      gap: 2rem;
+      gap: 5rem;
       align-items: center;
     }
 
@@ -188,13 +188,14 @@ const projects = (await getCollection('work'))
       display: flex;
       gap: 1.5rem;
       flex-direction: column;
+      padding: 1rem;
     }
 
     .gallery > li {
       list-style-type: none;
       flex-grow: 1;
       max-width: 45rem;
-      min-width: 35rem;
+      min-width: 30rem;
       width: 100%;
       align-self: center;
     }
@@ -203,7 +204,7 @@ const projects = (await getCollection('work'))
       .section {
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 'header header' 'gallery gallery';
-        gap: 5rem;
+        gap: 4rem;
       }
 
       .section-header {
