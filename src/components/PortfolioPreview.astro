@@ -1,41 +1,83 @@
 ---
 import type { CollectionEntry } from 'astro:content'
+import ArtDecoPattern from '../images/art-deco-pattern.svg'
 
 interface Props {
   project: CollectionEntry<'work'>
 }
 
 const { data, id } = Astro.props.project
+
+const rowCount = 2
+const colCount = 4
 ---
 
 <a class='card' href={`/work/${id}`}>
   <span class='title'>{data.title}</span>
   <span class='subtitle'>{data.description}</span>
-  <img
-    src={data.img}
-    alt={data.img_alt || ''}
-    loading='lazy'
-    decoding='async'
-  />
+  <div class='overlay'></div>
+  <div class='pattern-container'>
+    {
+      Array.from({ length: rowCount }).map((_, index) => (
+        <div
+          style={{
+            marginBottom: '-28px',
+            marginTop: '-8px',
+            transform: index % 2 === 0 ? 'translateX(-48px)' : 'none'
+          }}
+        >
+          {Array.from({ length: colCount }).map(() => (
+            <ArtDecoPattern
+              width={200}
+              height={210}
+              fill='black'
+              style={{ marginLeft: '-3px', display: 'inline-block' }}
+            />
+          ))}
+        </div>
+      ))
+    }
+  </div>
 </a>
 
 <style>
+  .pattern-container {
+    white-space: nowrap;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.3;
+    overflow: hidden;
+  }
+
+  .overlay {
+    position: absolute;
+    background-image: linear-gradient(
+      to bottom right,
+      rgb(82, 97, 120),
+      rgb(8, 20, 30)
+    );
+    opacity: 0.9;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+  }
+
   .card {
+    cursor: pointer;
     display: block;
     position: relative;
     height: 100%;
     width: 100%;
-    background: var(--gradient-subtle);
-    box-shadow: var(--shadow-sm);
     text-decoration: none;
     font-family: var(--font-brand);
     font-size: var(--text-lg);
     font-weight: 500;
-    transition: box-shadow var(--theme-transition);
   }
 
   .card:hover {
-    box-shadow: var(--shadow-md);
+    background-color: #c4a06e;
   }
 
   .title {
@@ -82,17 +124,5 @@ const { data, id } = Astro.props.project
     height: 100%;
     object-fit: cover;
     z-index: 0;
-  }
-
-  @media (min-width: 50em) {
-    .card {
-      /* height: 22rem; */
-      /* border: 3px solid #c4a06e; */
-      /* border-radius: 1.5rem; */
-    }
-
-    .title {
-      /* border-radius: 0.9375rem 0; */
-    }
   }
 </style>
