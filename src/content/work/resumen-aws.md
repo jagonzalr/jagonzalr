@@ -2,8 +2,6 @@
 title: Resumen AWS
 publishDate: 2019-10-02 00:00:00
 link: https://resumenaws.com/
-img: /assets/stock-4.jpg
-img_alt: Soft pink and baby blue water ripples together in a subtle texture.
 description: |
   A daily newsletter with the latest AWS news.
 tags:
