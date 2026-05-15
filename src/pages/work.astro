@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
 import ContactCTA from '../components/ContactCTA.astro'
-import Grid from '../components/Grid.astro'
 import Header from '../components/Header.astro'
 import PortfolioPreview from '../components/PortfolioPreview.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
@@ -22,7 +21,7 @@ const projects = (await getCollection('work')).sort(
         tagline='See my most recent projects below to get an idea of my past experience.'
         align='start'
       />
-      <Grid variant='offset'>
+      <div class='gallery'>
         {
           projects.map(project => (
             <li>
@@ -30,8 +29,27 @@ const projects = (await getCollection('work')).sort(
             </li>
           ))
         }
-      </Grid>
+      </div>
     </main>
     <ContactCTA />
   </div>
 </BaseLayout>
+
+<style>
+  .wrapper {
+    max-width: 120rem;
+    padding-inline: 5%;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .gallery > li {
+    list-style-type: none;
+    flex-grow: 1;
+    height: 20rem;
+  }
+</style>

@@ -8,6 +8,8 @@ import Footer from '../components/Footer.astro'
 import MainHead from '../components/MainHead.astro'
 import Nav from '../components/Nav.astro'
 import simonstownImg from '../images/simonstown-jagonzalr.jpg'
+import portoImg from '../images/porto-jagonzalr.jpg'
+import mexicoImg from '../images/mexico-2.jpg'
 
 interface Props {
   title?: string | undefined
@@ -23,6 +25,28 @@ const bgMain800 = await getImage({
 })
 const bgMain1440 = await getImage({
   src: simonstownImg,
+  format: 'webp',
+  width: 1440
+})
+
+const bgFeatured800 = await getImage({
+  src: mexicoImg,
+  format: 'webp',
+  width: 800
+})
+const bgFeatured1440 = await getImage({
+  src: mexicoImg,
+  format: 'webp',
+  width: 1440
+})
+
+const bgProjects800 = await getImage({
+  src: portoImg,
+  format: 'webp',
+  width: 800
+})
+const bgProjects1440 = await getImage({
+  src: portoImg,
   format: 'webp',
   width: 1440
 })
@@ -49,11 +73,17 @@ const bgMain1440 = await getImage({
     <style
       define:vars={{
         bgMain800: `url(${bgMain800.src})`,
-        bgMain1440: `url(${bgMain1440.src})`
+        bgMain1440: `url(${bgMain1440.src})`,
+        bgFeatured800: `url(${bgFeatured800.src})`,
+        bgFeatured1440: `url(${bgFeatured1440.src})`,
+        bgProjects800: `url(${bgProjects800.src})`,
+        bgProjects1440: `url(${bgProjects1440.src})`
       }}
     >
       :root {
         --bg-image-main: var(--bgMain800);
+        --bg-image-featured: var(--bgFeatured800);
+        --bg-image-projects: var(--bgProjects800);
         --bg-scale: 1.68;
         --bg-gradient-size: calc(var(--bg-scale) * 100%);
       }
@@ -62,6 +92,8 @@ const bgMain1440 = await getImage({
         :root {
           --bg-scale: 1;
           --bg-image-main: var(--bgMain1440);
+          --bg-image-featured: var(--bgFeatured1440);
+          --bg-image-projects: var(--bgProjects1440);
         }
       }
 

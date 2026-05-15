@@ -4,18 +4,16 @@ import { getCollection } from 'astro:content'
 import CallToAction from '../components/CallToAction.astro'
 // Page section components
 import ContactCTA from '../components/ContactCTA.astro'
-import Grid from '../components/Grid.astro'
 import Hero from '../components/Hero.astro'
 import Icon from '../components/Icon.astro'
-import Pill from '../components/Pill.astro'
 import PortfolioPreview from '../components/PortfolioPreview.astro'
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro'
 
 // Content Fetching: List four most recent work projects
+
 const projects = (await getCollection('work'))
+  .filter(project => project.data.featured)
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-  .slice(0, 4)
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -32,18 +30,36 @@ const projects = (await getCollection('work'))
       </header>
     </div>
 
-    <main class='wrapper stack gap-20 lg:gap-48'>
-      <section class='section with-cta'>
-        <header class='section-header stack gap-2 lg:gap-4'>
-          <h3>Featured Projects</h3>
-          <p>
-            Take a look below at some of my featured work from the past few
-            years.
-          </p>
-        </header>
-
-        <div class='gallery'>
-          <Grid variant='offset'>
+    <main class='wrapper stack'>
+      <section class='section'>
+        <div style={{ height: '100%' }}>
+          <div
+            class='background-image-featured'
+            style={{ position: 'relative' }}
+          >
+            <div class='decor-frame'></div>
+            <div class='decor-frame-alt'></div>
+            <header class='section-header stack gap-2 lg:gap-4 shadow-sm'>
+              <h3>Featured Projects</h3>
+            </header>
+          </div>
+          <div
+            style={{
+              marginTop: '-8rem',
+              marginBottom: '5rem',
+              padding: '0 2rem',
+              fontFamily: 'Google Sans Flex, sans-serif',
+              fontSize: '16px'
+            }}
+          >
+            <CallToAction href='/work/'>
+              View All Projects
+              <Icon icon='arrow-right' size='1.2em' />
+            </CallToAction>
+          </div>
+        </div>
+        <div style={{ height: '100%' }}>
+          <div class='gallery'>
             {
               projects.map(project => (
                 <li>
@@ -51,22 +67,19 @@ const projects = (await getCollection('work'))
                 </li>
               ))
             }
-          </Grid>
-        </div>
-
-        <div class='cta'>
-          <CallToAction href='/work/'>
-            View All
-            <Icon icon='arrow-right' size='1.2em' />
-          </CallToAction>
+          </div>
         </div>
       </section>
+      <ContactCTA />
     </main>
-
-    <ContactCTA />
   </div>
 
   <style>
+    .wrapper {
+      max-width: 120rem;
+      padding: 5%;
+    }
+
     .hero {
       height: 100vh;
       display: grid;
@@ -84,6 +97,24 @@ const projects = (await getCollection('work'))
       object-position: top;
       border-radius: 1.5rem;
       box-shadow: var(--shadow-md);
+    }
+
+    .decor-frame {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: -20px;
+      bottom: 0;
+      border: 3px solid #c4a06e;
+    }
+
+    .decor-frame-alt {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: -20px;
+      bottom: -20px;
+      border: 3px solid #c4a06e;
     }
 
     @media (min-width: 50em) {
@@ -108,32 +139,73 @@ const projects = (await getCollection('work'))
       background-size: cover;
     }
 
+    .background-image-featured {
+      margin-top: 1.3rem;
+      min-height: 35rem;
+      height: 85vh;
+      max-height: 75rem;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.7)
+        ),
+        var(--bg-image-featured) top center;
+      background-size: cover;
+    }
+
+    .background-image-projects {
+      min-height: 20rem;
+      background: var(--bg-image-projects) top center;
+      background-size: cover;
+    }
+
     .section {
       display: grid;
-      gap: 2rem;
+      gap: 5rem;
+      align-items: center;
     }
 
     .section-header {
+      position: absolute;
+      bottom: 12%;
       justify-self: center;
       text-align: center;
       max-width: 50ch;
       font-size: var(--text-md);
-      color: var(--gray-300);
     }
 
     .section-header h3 {
       font-size: var(--text-2xl);
+      color: #e2d7c1;
+      padding: 4rem;
+      font-size: var(--text-4xl);
+    }
+
+    .gallery {
+      height: 100%;
+      min-height: 50rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .gallery > li {
+      list-style-type: none;
+      flex-grow: 1;
+      max-width: 45rem;
+      min-width: 30rem;
+      width: 100%;
+      align-self: center;
     }
 
     @media (min-width: 50em) {
       .section {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-        gap: 5rem;
-      }
-
-      .section.with-cta {
-        grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'header header' 'gallery gallery';
+        gap: 4rem;
       }
 
       .section-header {
@@ -142,16 +214,7 @@ const projects = (await getCollection('work'))
       }
 
       .section-header h3 {
-        font-size: var(--text-4xl);
-      }
-
-      .with-cta .section-header {
-        justify-self: flex-start;
-        text-align: left;
-      }
-
-      .gallery {
-        grid-area: gallery;
+        font-size: var(--text-5xl);
       }
 
       .cta {
