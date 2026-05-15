@@ -1,8 +1,7 @@
 ---
 title: NPM Popularity
 publishDate: 2019-10-02 00:00:00
-img: /assets/stock-4.jpg
-img_alt: Soft pink and baby blue water ripples together in a subtle texture.
+link: https://npmpopularity.jagonzalr.com/
 description: |
   The most popular NPM packages.
 tags:
@@ -15,5 +14,3 @@ tags:
 Technologies used were AWS Lambda in Go and Terraform for infrastructure.
 
 Made with React and Redux-Toolkit, styled with Tailwind CSS and deployed with Netlify.
-
-[Link](https://npmpopularity.jagonzalr.com/)

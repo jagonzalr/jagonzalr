@@ -1,8 +1,7 @@
 ---
 title: Semanta11y
 publishDate: 2019-10-02 00:00:00
-img: /assets/stock-4.jpg
-img_alt: Soft pink and baby blue water ripples together in a subtle texture.
+link: https://semanta11y.com/
 description: |
   Make your website accessible to everyone.
 tags:
@@ -17,5 +16,3 @@ Semanta11y gives you instant accessibility reports for your website URLs, with c
 The backend is written in Typescript with Terraform as IaC and backed by AWS Lambda.
 
 The frontend is built with React, Redux and Tailwind CSS.
-
-[Link](https://semanta11y.com/)

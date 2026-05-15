@@ -11,8 +11,9 @@ export const collections = {
 			featured: z.boolean().default(false).optional(),
 			publishDate: z.coerce.date(),
 			tags: z.array(z.string()),
-			img: z.string(),
+			img: z.string().optional(),
 			img_alt: z.string().optional(),
+			link: z.string().optional(),
 		}),
 	}),
 };
