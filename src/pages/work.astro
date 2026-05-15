@@ -16,11 +16,31 @@ const projects = (await getCollection('work')).sort(
 >
   <div class='stack gap-20'>
     <main class='wrapper stack gap-8'>
-      <Header
-        title='My Work'
-        tagline='See my most recent projects below to get an idea of my past experience.'
-        align='start'
-      />
+      <div>
+        <div
+          class='background-image-projects'
+          style={{ position: 'relative', marginTop: '10rem' }}
+        >
+          <div class='decor-frame'></div>
+          <div class='decor-frame-alt'></div>
+          <header class='section-header stack'>
+            <Header
+              title='My Work'
+              tagline='See my recent projects below to get an idea of my experience and interests.'
+              align='center'
+            />
+          </header>
+        </div>
+        <div
+          style={{
+            marginBottom: '3rem',
+            padding: '0 2rem',
+            fontFamily: 'Google Sans Flex, sans-serif',
+            fontSize: '16px'
+          }}
+        >
+        </div>
+      </div>
       <div class='gallery'>
         {
           projects.map(project => (
@@ -30,34 +50,86 @@ const projects = (await getCollection('work')).sort(
           ))
         }
       </div>
+
+      <ContactCTA />
     </main>
-    <ContactCTA />
   </div>
-</BaseLayout>
 
-<style>
-  .wrapper {
-    max-width: 100rem;
-    padding-inline: 5%;
-  }
-
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1.5rem;
-  }
-
-  .gallery > li {
-    list-style-type: none;
-    flex-grow: 1;
-    height: 20rem;
-    max-width: 45rem;
-  }
-
-  @media (min-width: 60em) {
-    .gallery {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+  <style>
+    .wrapper {
+      max-width: 100rem;
+      padding-inline: 5%;
     }
-  }
-</style>
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+    }
+
+    .gallery > li {
+      list-style-type: none;
+      flex-grow: 1;
+      height: 20rem;
+      max-width: 45rem;
+    }
+
+    .background-image-projects {
+      min-height: 20rem;
+      background: var(--bg-image-projects) center center;
+      background-size: cover;
+    }
+
+    .decor-frame {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: -20px;
+      bottom: 0;
+      border: 3px solid #c4a06e;
+    }
+
+    .decor-frame-alt {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: -20px;
+      bottom: -20px;
+      border: 3px solid #c4a06e;
+    }
+
+    .section-header {
+      position: absolute;
+      bottom: 5%;
+      justify-self: center;
+      text-align: center;
+      max-width: 50ch;
+      font-size: var(--text-md);
+      padding: 3rem;
+    }
+
+    .section-header h3 {
+      font-size: var(--text-2xl);
+      color: #e2d7c1;
+
+      font-size: var(--text-4xl);
+    }
+
+    @media (min-width: 50em) {
+      .background-image-projects {
+        min-height: 30rem;
+      }
+
+      .section-header {
+        bottom: 15%;
+      }
+    }
+
+    @media (min-width: 60em) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+  </style>
+</BaseLayout>

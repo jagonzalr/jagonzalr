@@ -29,7 +29,6 @@ const projects = (await getCollection('work'))
         />
       </header>
     </div>
-
     <main class='wrapper stack'>
       <section class='section'>
         <div style={{ height: '100%' }}>
@@ -39,7 +38,7 @@ const projects = (await getCollection('work'))
           >
             <div class='decor-frame'></div>
             <div class='decor-frame-alt'></div>
-            <header class='section-header stack gap-2 lg:gap-4 shadow-sm'>
+            <header class='section-header stack'>
               <h3>Featured Projects</h3>
             </header>
           </div>
@@ -152,12 +151,6 @@ const projects = (await getCollection('work'))
           rgba(0, 0, 0, 0.7)
         ),
         var(--bg-image-featured) top center;
-      background-size: cover;
-    }
-
-    .background-image-projects {
-      min-height: 20rem;
-      background: var(--bg-image-projects) top center;
       background-size: cover;
     }
 
