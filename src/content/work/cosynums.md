@@ -2,9 +2,9 @@
 title: CosyNums
 featured: true
 publishDate: 2020-03-02 00:00:00
+link: https://cosynums.com/
 img: /assets/cosynums-screenshot.png
 img_alt: A screenshot from the CosyNums recipe planner app, it shows the landing page
-link: https://cosynums.com/
 description: |
   Your favourite recipes in one place.
 tags:
