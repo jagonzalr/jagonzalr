@@ -236,7 +236,7 @@ const isCurrentPage = (href: string) => {
     list-style: none;
     background-color: var(--gray-999);
     border-bottom: 1px solid var(--gray-800);
-    padding-bottom: 1.7rem;
+    padding: 1.7rem;
   }
 
   .link {
@@ -318,14 +318,12 @@ const isCurrentPage = (href: string) => {
       border: 0;
       padding: 0.5rem 0.5625rem;
       background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
-      box-shadow: var(--shadow-md);
     }
 
     .nav-items::before {
       position: absolute;
       inset: -1px;
       content: '';
-      background: var(--gradient-stroke);
       border-radius: 999rem;
       z-index: -1;
     }
@@ -346,7 +344,7 @@ const isCurrentPage = (href: string) => {
 
     .link[aria-current='page'] {
       color: var(--accent-text-over);
-      background-color: var(--accent-regular);
+      background-color: #795f42;
     }
 
     .menu-footer {

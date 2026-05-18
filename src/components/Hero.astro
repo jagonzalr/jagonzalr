@@ -61,7 +61,10 @@ const { tagline, title } = Astro.props
       <div
         class='decorative-hero-bg-container'
         aria-hidden='true'
-        style={{ zIndex: 2, position: 'relative' }}
+        style={{
+          zIndex: 2,
+          position: 'relative'
+        }}
       >
         <div class='decorative-hero-container white-on-blue'>
           <h1
@@ -131,6 +134,7 @@ const { tagline, title } = Astro.props
   .white-on-blue {
     background-color: #15232b;
     color: #f1e8e1;
+    background: linear-gradient(to right bottom, #0c161c, #15232b, #626154);
   }
 
   .blue-on-white {
