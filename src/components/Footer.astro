@@ -8,15 +8,17 @@ const currentYear = new Date().getFullYear()
   <div class='group'>
     <p>
       Developed with <a href='https://astro.build/'>Astro</a>
-      <Icon icon='rocket-launch' size='1.2em' />
+      <Icon icon='rocket-launch' size='1.2em' /> by <a
+        href='https://danellewessels.com'>Dan</a
+      >
     </p>
     <p>&copy; {currentYear} Jose Antonio González Rodríguez</p>
     <p>
-      Uses <a
-        href='https://thenounproject.com/browse/icons/term/art-deco/'
+      <a
+        href='https://thenounproject.com/icon/art-deco-pattern-3292234/'
         target='_blank'
-        title='art deco Icons'>Noun Project</a
-      > icons by Olena Panasovska
+        title='art deco Icons'>Noun Project pattern</a
+      > by Olena Panasovska
     </p>
   </div>
 </footer>
@@ -25,7 +27,8 @@ const currentYear = new Date().getFullYear()
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    margin-top: auto;
+    border-top: 1px solid var(--gray-800);
+    margin-top: 5rem;
     padding: 3rem 2rem 3rem;
     text-align: center;
     color: var(--gray-400);

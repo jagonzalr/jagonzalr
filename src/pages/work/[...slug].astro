@@ -56,7 +56,7 @@ const { Content } = await render(entry)
           {
             entry.data.link && (
               <div style={{ margin: 'auto' }}>
-                <Button href={entry.data.link}>
+                <Button href={entry.data.link} external={true}>
                   Go to Project
                   <Icon icon='arrowSquareOut' size='1.2em' />
                 </Button>
@@ -65,7 +65,7 @@ const { Content } = await render(entry)
           }
         </div>
       </main>
-      <ContactCTA />
+      <!-- <ContactCTA /> -->
     </div>
   </div>
 
