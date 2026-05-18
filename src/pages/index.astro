@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 // Component Imports
-import CallToAction from '../components/CallToAction.astro'
+import Button from '../components/Button.astro'
 // Page section components
 import ContactCTA from '../components/ContactCTA.astro'
 import Hero from '../components/Hero.astro'
@@ -52,10 +52,10 @@ const projects = (await getCollection('work'))
               fontSize: '16px'
             }}
           >
-            <CallToAction href='/work/'>
+            <Button href='/work/'>
               View All Projects
               <Icon icon='arrow-right' size='1.2em' />
-            </CallToAction>
+            </Button>
           </div>
         </div>
         <div style={{ height: '100%' }}>
