@@ -24,11 +24,16 @@ const projects = (await getCollection('work')).sort(
           <div class='decor-frame'></div>
           <div class='decor-frame-alt'></div>
           <header class='section-header stack'>
-            <Header
+            <h3>My Work</h3>
+            <p>
+              See my recent projects below to get an idea of my experience and
+              interests.
+            </p>
+            <!-- <Header
               title='My Work'
               tagline='See my recent projects below to get an idea of my experience and interests.'
               align='center'
-            />
+            /> -->
           </header>
         </div>
         <div
@@ -108,11 +113,18 @@ const projects = (await getCollection('work')).sort(
       padding: 3rem;
     }
 
-    .section-header h3 {
-      font-size: var(--text-2xl);
+    .section-header > h3 {
       color: #e2d7c1;
+      text-shadow: 3px 3px 8px black;
+      font-size: var(--text-5xl);
+    }
 
-      font-size: var(--text-4xl);
+    .section-header > p {
+      color: #e2d7c1;
+      text-shadow: 3px 3px 8px black;
+      font-size: var(--text-xl);
+      line-height: 1.2;
+      margin-top: 1rem;
     }
 
     @media (min-width: 50em) {

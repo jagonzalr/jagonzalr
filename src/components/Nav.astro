@@ -124,6 +124,8 @@ const isCurrentPage = (href: string) => {
 </nav>
 
 <script>
+  import { boolean } from 'astro:schema'
+
   class MenuButton extends HTMLElement {
     constructor() {
       super()
@@ -145,7 +147,7 @@ const isCurrentPage = (href: string) => {
       }
 
       // Toggle menu visibility when the menu button is clicked.
-      btn.addEventListener('click', () => setExpanded(menu.hidden))
+      btn.addEventListener('click', () => setExpanded(menu.hidden as boolean))
 
       // Hide menu button for large screens.
       const handleViewports = (e: MediaQueryList | MediaQueryListEvent) => {
@@ -227,14 +229,13 @@ const isCurrentPage = (href: string) => {
   }
 
   .nav-items {
+    font-family: 'Righteous', cursive;
     margin: 0;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    font-size: var(--text-md);
-    line-height: 1.2;
+    line-height: 1;
     list-style: none;
-    padding: 2rem;
     background-color: var(--gray-999);
     border-bottom: 1px solid var(--gray-800);
   }
@@ -243,6 +244,7 @@ const isCurrentPage = (href: string) => {
     display: inline-block;
     color: var(--gray-300);
     text-decoration: none;
+    font-size: 1.1rem;
   }
 
   .link[aria-current] {
@@ -273,13 +275,12 @@ const isCurrentPage = (href: string) => {
     display: flex;
     padding: var(--icon-padding);
     text-decoration: none;
-    color: var(--accent-dark);
     transition: color var(--theme-transition);
   }
 
   .social:hover,
   .social:focus {
-    color: var(--accent-text-over);
+    opacity: 0.7;
   }
 
   .theme-toggle {
