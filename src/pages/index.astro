@@ -136,7 +136,6 @@ const projects = (await getCollection('work'))
     .background-image {
       min-height: 20rem;
       height: 100vh;
-      margin-bottom: 3rem;
       background: var(--bg-image-main) top center;
       background-size: cover;
     }
@@ -161,6 +160,8 @@ const projects = (await getCollection('work'))
       display: grid;
       gap: 5rem;
       align-items: center;
+      padding: 3rem 0;
+      min-height: 100vh;
     }
 
     .section-header {
@@ -209,7 +210,6 @@ const projects = (await getCollection('work'))
     @media (min-width: 50em) {
       .section {
         grid-template-columns: 1fr 1fr;
-        grid-template-areas: 'header header' 'gallery gallery';
         gap: 3rem;
       }
 
