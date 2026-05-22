@@ -44,7 +44,7 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
               aria-expanded='false'
               aria-haspopup='listbox'
             >
-              <span class='dropdown-label'>Type</span>
+              <span class='dropdown-label'>Classification</span>
               <span class='dropdown-count' aria-hidden='true'></span>
               <svg
                 class='dropdown-chevron'
@@ -62,7 +62,11 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
                   stroke-linejoin='round'></path>
               </svg>
             </button>
-            <div class='dropdown-panel' role='listbox' aria-multiselectable='true'>
+            <div
+              class='dropdown-panel'
+              role='listbox'
+              aria-multiselectable='true'
+            >
               {
                 allTypes.map(type => (
                   <label class='dropdown-option'>
@@ -85,7 +89,7 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
               aria-expanded='false'
               aria-haspopup='listbox'
             >
-              <span class='dropdown-label'>Tags</span>
+              <span class='dropdown-label'>Technologies</span>
               <span class='dropdown-count' aria-hidden='true'></span>
               <svg
                 class='dropdown-chevron'
@@ -103,15 +107,15 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
                   stroke-linejoin='round'></path>
               </svg>
             </button>
-            <div class='dropdown-panel' role='listbox' aria-multiselectable='true'>
+            <div
+              class='dropdown-panel'
+              role='listbox'
+              aria-multiselectable='true'
+            >
               {
                 allTags.map(tag => (
                   <label class='dropdown-option'>
-                    <input
-                      type='checkbox'
-                      value={tag}
-                      data-filter-type='tag'
-                    />
+                    <input type='checkbox' value={tag} data-filter-type='tag' />
                     <span>{tag}</span>
                   </label>
                 ))
@@ -248,13 +252,13 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
   .dropdown-trigger:hover,
   .dropdown[data-open] .dropdown-trigger {
     border-color: #c4a06e;
-    color: #e2d7c1;
+    color: #c4a06e;
   }
 
   .dropdown[data-active] .dropdown-trigger {
     border-color: #c4a06e;
     background: rgba(196, 160, 110, 0.15);
-    color: #e2d7c1;
+    color: #c4a06e;
   }
 
   .dropdown-label {
@@ -262,7 +266,7 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
   }
 
   .dropdown-count {
-    display: inline-flex;
+    display: none;
     align-items: center;
     justify-content: center;
     min-width: 1.2rem;
@@ -294,7 +298,7 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
     min-width: 13rem;
     max-height: 18rem;
     overflow-y: auto;
-    background: #0f1c24;
+    background: var(--gray-900);
     border: 1px solid #c4a06e;
     border-radius: 0.75rem;
     padding: 0.4rem 0;
@@ -314,12 +318,14 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
     font-family: 'Google Sans Flex', sans-serif;
     font-size: var(--text-sm);
     color: var(--gray-300);
-    transition: background 0.1s, color 0.1s;
+    transition:
+      background 0.1s,
+      color 0.1s;
   }
 
   .dropdown-option:hover {
     background: rgba(196, 160, 110, 0.12);
-    color: #e2d7c1;
+    color: var(--gray-200);
   }
 
   .dropdown-option input[type='checkbox'] {
@@ -332,7 +338,9 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
     cursor: pointer;
     flex-shrink: 0;
     position: relative;
-    transition: background 0.1s, border-color 0.1s;
+    transition:
+      background 0.1s,
+      border-color 0.1s;
   }
 
   .dropdown-option input[type='checkbox']:checked {
@@ -422,7 +430,7 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
       "font-family:'Google Sans Flex',sans-serif",
       'white-space:nowrap',
       `background:${bg}`,
-      'color:#fff',
+      'color:#15232b',
       'line-height:1.4'
     ].join(';')
   }
@@ -469,13 +477,16 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
 
   // ── Dropdown open / close ──
   function closeAll(except?: Element) {
-    document.querySelectorAll<HTMLElement>('.dropdown[data-open]').forEach(d => {
-      if (d !== except) d.removeAttribute('data-open')
-    })
+    document
+      .querySelectorAll<HTMLElement>('.dropdown[data-open]')
+      .forEach(d => {
+        if (d !== except) d.removeAttribute('data-open')
+      })
   }
 
   document.querySelectorAll<HTMLElement>('.dropdown').forEach(dropdown => {
-    const trigger = dropdown.querySelector<HTMLButtonElement>('.dropdown-trigger')!
+    const trigger =
+      dropdown.querySelector<HTMLButtonElement>('.dropdown-trigger')!
 
     trigger.addEventListener('click', e => {
       e.stopPropagation()
