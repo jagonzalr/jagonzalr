@@ -138,12 +138,7 @@ const projects = (await getCollection('work'))
       min-height: 20rem;
       height: 100vh;
       background:
-        linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.65),
-          rgba(0, 0, 0, 0.15),
-          transparent
-        ),
+        var(--gradient-hero),
         var(--bg-image-main) top center;
       background-size: cover;
     }
