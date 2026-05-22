@@ -255,5 +255,21 @@ const projects = (await getCollection('work'))
         height: 9.5rem;
       }
     }
+
+    @media (max-width: 34.375em) {
+      .section {
+        gap: 4rem;
+      }
+
+      .gallery {
+        min-height: auto;
+        gap: 1rem;
+      }
+
+      .gallery > li {
+        min-width: 0;
+        height: 20rem;
+      }
+    }
   </style>
 </BaseLayout>
