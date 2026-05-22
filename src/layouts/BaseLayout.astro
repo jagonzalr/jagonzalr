@@ -3,6 +3,7 @@
 // https://docs.astro.build/en/basics/layouts/
 
 import { getImage } from 'astro:assets'
+import { ViewTransitions } from 'astro:transitions'
 import Footer from '../components/Footer.astro'
 // Component Imports
 import MainHead from '../components/MainHead.astro'
@@ -55,6 +56,7 @@ const bgProjects1440 = await getImage({
 <html lang='en'>
   <head>
     <MainHead title={title} description={description} />
+    <ViewTransitions />
   </head>
   <body>
     <div class='stack backgrounds'>
