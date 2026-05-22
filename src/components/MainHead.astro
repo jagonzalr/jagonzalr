@@ -49,4 +49,10 @@ const {
       attributeFilter: ['class']
     })
   }
+
+  // Preserve theme class across View Transitions page swaps.
+  document.addEventListener('astro:before-swap', (event) => {
+    const isDark = document.documentElement.classList.contains('theme-dark')
+    event.newDocument.documentElement.classList[isDark ? 'add' : 'remove']('theme-dark')
+  })
 </script>
