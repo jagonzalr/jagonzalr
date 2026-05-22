@@ -7,10 +7,10 @@ interface Props {
 const { tagline, title } = Astro.props
 ---
 
-<div style={{ height: '55vh', minHeight: '32rem' }}>
+<div class='hero-position-container'>
   <div
     class='stack gap-4'
-    style={{ position: 'absolute', left: 0, maxWidth: '100vw' }}
+    style={{ position: 'absolute', left: '0', maxWidth: '100vw' }}
   >
     <div class='hero-info-container'>
       <div
@@ -79,154 +79,183 @@ const { tagline, title } = Astro.props
         </div>
       </div>
     </div>
-
     <div
       class='decorative-hero-bg-container'
       aria-hidden='true'
-      style={{ marginRight: 'auto', zIndex: 2 }}
+      style={{ marginRight: 'auto', zIndex: 2, minWidth: '30rem' }}
     >
       <div class='decorative-hero-container blue-on-white'>
         {tagline && <p class='tagline'>{tagline}</p>}
       </div>
     </div>
+    <slot />
   </div>
-  <slot />
-</div>
 
-<style>
-  .profile-img-container {
-    margin: 8rem -10rem 0 0;
-    background-color: #795f42 !important;
-    z-index: 1;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 1rem;
-  }
-
-  .hero {
-    font-size: var(--text-lg);
-    text-align: center;
-  }
-
-  .hero-info-container {
-    z-index: 2;
-    position: relative;
-    margin-inline-end: 8rem;
-  }
-
-  .hero-image {
-    border-radius: 100%;
-    float: right;
-    border: 3px solid var(--accent-light);
-    position: relative;
-    z-index: 2;
-    width: 200px;
-  }
-
-  .decorative-hero-container {
-    border-radius: 0 50vh 50vh 0;
-    border: 3px solid var(--accent-light);
-    border-left: none;
-  }
-
-  .white-on-blue {
-    background-color: #15232b;
-    color: #f1e8e1;
-    background: linear-gradient(to right bottom, #0c161c, #15232b, #626154);
-  }
-
-  .blue-on-white {
-    background-color: #f1e8e1;
-    color: #15232b;
-  }
-
-  .decorative-hero-bg-container {
-    border-radius: 0 50vh 50vh 0;
-    border: 3px solid var(--accent-light);
-    border-left: none;
-    background-color: #2c475a;
-    padding: 0.8rem;
-    padding-left: 0;
-    max-width: 100vw;
-    margin-bottom: 5rem;
-  }
-
-  .tagline {
-    width: 37ch;
-    max-width: 80vw;
-    font-size: 1rem;
-    line-height: 1.3;
-    color: #2c475a;
-    padding: 1rem 4rem 1rem 1.2rem;
-    font-family: 'Google Sans Flex', serif;
-    font-weight: 400;
-  }
-
-  .title {
-    font-size: var(--text-2xl);
-    color: var(--gray-0);
-    padding: 1.2rem;
-    padding-right: 2rem;
-  }
-
-  .start {
-    text-align: start;
-  }
-
-  @media (min-width: 28em) {
-    .tagline {
-      max-width: 50vw;
+  <style>
+    .profile-img-container {
+      margin: 6rem -19rem 0 0;
+      background-color: #795f42 !important;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 1rem;
     }
 
-    .decorative-hero-bg-container {
-      margin-bottom: 0;
+    .hero-position-container {
+      height: 30vh;
+      min-height: 20rem;
+      scale: 0.5;
+      transform-origin: left center;
+      width: 100%;
+    }
+
+    .hero-info-container {
+      z-index: 2;
+      position: relative;
+      margin-bottom: 2rem;
     }
 
     .hero-image {
-      width: 280px;
+      border-radius: 100%;
+      float: right;
+      border: 3px solid var(--accent-light);
+      position: relative;
+      z-index: 100;
+      width: 250px;
     }
 
-    .profile-img-container {
-      margin: 6rem -19rem 0 0;
-    }
-  }
-
-  @media (min-width: 50em) {
-    .hero-info-container {
-      margin-inline-end: 15rem;
+    .decorative-hero-container {
+      border-radius: 0 50vh 50vh 0;
+      border: 3px solid var(--accent-light);
+      border-left: none;
     }
 
-    .title,
+    .white-on-blue {
+      background-color: #15232b;
+      color: #f1e8e1;
+      background: linear-gradient(to right bottom, #0c161c, #15232b, #626154);
+    }
+
+    .blue-on-white {
+      background-color: #f1e8e1;
+      color: #15232b;
+    }
+
+    .decorative-hero-bg-container {
+      border-radius: 0 50vh 50vh 0;
+      border: 3px solid var(--accent-light);
+      border-left: none;
+      background-color: #2c475a;
+      padding: 0.8rem;
+      padding-left: 0;
+      /* width: 80vw; */
+      /* max-width: 100vw; */
+      /* margin-bottom: 5rem; */
+    }
+
     .tagline {
-      margin-inline-start: 2rem;
+      width: 100%;
+      max-width: 40ch;
+      font-size: 1.4rem;
+      line-height: 1.4;
+      color: #1d2b35;
+      padding: 1.5rem 2.5rem 1.5rem 1.2rem;
+      font-family: 'Google Sans Flex', serif;
+      font-weight: 400;
     }
 
     .title {
-      font-size: var(--text-4xl);
-      padding: 1.7rem;
+      font-size: var(--text-3xl);
+      color: var(--gray-0);
+      padding: 1.5rem;
+      padding-right: 4rem;
     }
 
-    .tagline {
-      font-size: 1.1rem;
-    }
-  }
-
-  @media (min-width: 80em) {
-    .title,
-    .tagline {
-      margin-inline-start: 4rem;
+    .start {
+      text-align: start;
     }
 
-    .title {
-      font-size: var(--text-5xl);
-      padding: 2rem 4rem 2rem 0;
+    @media (min-width: 28em) {
+      .title {
+        font-size: var(--text-4xl);
+      }
+
+      .hero-info-container {
+        margin-bottom: 0;
+      }
+
+      .decorative-hero-bg-container {
+        margin-bottom: 0;
+      }
+
+      .hero-image {
+        width: 280px;
+      }
+
+      .profile-img-container {
+        margin: 6rem -19rem 0 0;
+      }
+
+      .hero-position-container {
+        scale: 0.6;
+      }
     }
 
-    .tagline {
-      padding-left: 0rem;
-      font-size: 1.2rem;
+    @media (min-width: 50em) {
+      .title {
+        font-size: var(--text-4xl);
+      }
+
+      /* .profile-img-container {
+        margin: 6rem -19rem 0 0;
+      } */
+
+      .profile-img-container {
+        /* margin: 6rem -19px 0 0; */
+      }
+
+      .hero-info-container {
+        margin-inline-end: 15rem;
+        /* margin-bottom: 0; */
+      }
+
+      .title,
+      .tagline {
+        margin-inline-start: 2rem;
+      }
+
+      .title {
+        /* font-size: var(--text-4xl); */
+        padding: 1.7rem;
+      }
+
+      .tagline {
+        /* font-size: 1.3rem; */
+      }
+
+      .hero-position-container {
+        scale: 0.8;
+      }
     }
-  }
-</style>
+
+    @media (min-width: 80em) {
+      .title,
+      .tagline {
+        margin-inline-start: 4rem;
+      }
+
+      .title {
+        padding: 2rem 4rem 2rem 0;
+      }
+
+      .tagline {
+        padding-left: 0rem;
+      }
+
+      .hero-position-container {
+        scale: 1;
+      }
+    }
+  </style>
+</div>
