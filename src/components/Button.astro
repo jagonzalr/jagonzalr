@@ -1,12 +1,17 @@
 ---
 interface Props {
   href: string
+  external?: boolean
 }
 
-const { href } = Astro.props
+const { href, external } = Astro.props
 ---
 
-<a href={href}><slot /></a>
+<a
+  href={href}
+  target={external ? '_blank' : '_self'}
+  rel={external ? 'noopener noreferrer' : undefined}><slot /></a
+>
 
 <style>
   a {
@@ -21,8 +26,9 @@ const { href } = Astro.props
     line-height: 1.1;
     border-radius: 999rem;
     overflow: hidden;
-    background: var(--gradient-accent-orange);
-    box-shadow: var(--shadow-md);
+    background: linear-gradient(to right bottom, #15232b, #2c475a, #716a55);
+    border: 1px solid var(--accent-light);
+    /* box-shadow: var(--shadow-md); */
     white-space: nowrap;
   }
 
