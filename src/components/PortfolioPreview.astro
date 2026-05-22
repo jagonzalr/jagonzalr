@@ -12,9 +12,15 @@ const rowCount = 2
 const colCount = 4
 ---
 
-<a class='card' href={`/work/${id}`}>
+<a
+  class='card'
+  href={`/work/${id}`}
+  data-tags={data.tags.join(',')}
+  data-type={data.type}
+>
   <span class='title'>{data.title}</span>
   <span class='subtitle'>{data.description}</span>
+  <div class='active-filters' aria-hidden='true'></div>
   <div class='overlay'></div>
   <div class='pattern-container'>
     {
@@ -117,6 +123,18 @@ const colCount = 4
     border-right: none;
     font-family: 'Google Sans Flex', serif;
     font-weight: 200;
+  }
+
+  .active-filters {
+    z-index: 2;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    justify-content: flex-end;
+    max-width: 60%;
   }
 
   img {

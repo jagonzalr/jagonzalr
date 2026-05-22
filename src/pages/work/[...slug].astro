@@ -36,6 +36,7 @@ const { Content } = await render(entry)
           <Header title={entry.data.title} align='start'>
             <div class='details'>
               <div class='tags'>
+                <Pill variant='type'>{entry.data.type}</Pill>
                 {entry.data.tags.map(t => <Pill>{t}</Pill>)}
               </div>
               <p class='description'>{entry.data.description}</p>

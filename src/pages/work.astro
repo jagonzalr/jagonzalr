@@ -8,6 +8,9 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 const projects = (await getCollection('work')).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 )
+
+const allTags = [...new Set(projects.flatMap(p => p.data.tags))].sort()
+const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
 ---
 
 <BaseLayout
@@ -21,15 +24,61 @@ const projects = (await getCollection('work')).sort(
         tagline='See my most recent projects below to get an idea of my past experience.'
         align='start'
       />
-      <div class='gallery'>
+
+      <div class='filters stack gap-4'>
+        <div class='filter-group'>
+          <span class='filter-label'>Type</span>
+          <div class='filter-pills' id='type-filters'>
+            {
+              allTypes.map(type => (
+                <button
+                  class='filter-pill'
+                  data-filter-type='type'
+                  data-value={type}
+                  aria-pressed='false'
+                >
+                  {type}
+                </button>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class='filter-group'>
+          <span class='filter-label'>Tags</span>
+          <div class='filter-pills' id='tag-filters'>
+            {
+              allTags.map(tag => (
+                <button
+                  class='filter-pill'
+                  data-filter-type='tag'
+                  data-value={tag}
+                  aria-pressed='false'
+                >
+                  {tag}
+                </button>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class='filter-actions' id='filter-actions' style='display:none'>
+          <button class='clear-btn' id='clear-filters'>Clear filters</button>
+        </div>
+      </div>
+
+      <ul class='gallery' id='project-gallery'>
         {
           projects.map(project => (
-            <li>
+            <li
+              data-tags={project.data.tags.join(',')}
+              data-type={project.data.type}
+            >
               <PortfolioPreview project={project} />
             </li>
           ))
         }
-      </div>
+      </ul>
     </main>
     <ContactCTA />
   </div>
@@ -45,6 +94,8 @@ const projects = (await getCollection('work')).sort(
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 1.5rem;
+    padding: 0;
+    margin: 0;
   }
 
   .gallery > li {
@@ -54,6 +105,88 @@ const projects = (await getCollection('work')).sort(
     max-width: 45rem;
   }
 
+  .gallery > li[data-hidden] {
+    display: none;
+  }
+
+  .filters {
+    gap: 0.75rem;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .filter-label {
+    font-size: var(--text-sm);
+    font-family: var(--font-brand);
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-top: 0.35rem;
+    min-width: 2.5rem;
+  }
+
+  .filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .filter-pill {
+    cursor: pointer;
+    padding: 0.25rem 0.85rem;
+    border-radius: 999rem;
+    border: 1px solid var(--gray-700);
+    background: transparent;
+    color: var(--gray-300);
+    font-size: var(--text-sm);
+    font-family: var(--font-brand);
+    line-height: 1.5;
+    white-space: nowrap;
+    transition:
+      background 0.15s,
+      border-color 0.15s,
+      color 0.15s;
+  }
+
+  .filter-pill:hover {
+    border-color: var(--accent-regular);
+    color: var(--accent-text-over);
+    background: var(--accent-dark);
+  }
+
+  .filter-pill[aria-pressed='true'] {
+    background: var(--accent-regular);
+    border-color: var(--accent-regular);
+    color: var(--accent-text-over);
+  }
+
+  .filter-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .clear-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--gray-400);
+    font-size: var(--text-sm);
+    font-family: var(--font-brand);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    padding: 0;
+  }
+
+  .clear-btn:hover {
+    color: var(--gray-200);
+  }
+
   @media (min-width: 60em) {
     .gallery {
       grid-template-columns: repeat(2, 1fr);
@@ -61,3 +194,94 @@ const projects = (await getCollection('work')).sort(
     }
   }
 </style>
+
+<script>
+  const selectedTypes = new Set<string>()
+  const selectedTags = new Set<string>()
+
+  const gallery = document.getElementById('project-gallery')!
+  const filterActions = document.getElementById('filter-actions')!
+  const clearBtn = document.getElementById('clear-filters')!
+
+  function pillStyle(label: string): string {
+    const colors: Record<string, string> = {
+      SaaS: '#4f8ef7',
+      OSS: '#5cb85c',
+      Project: '#c4a06e',
+    }
+    const bg = colors[label] ?? 'var(--accent-regular)'
+    return `display:inline-flex;align-items:center;padding:0.2rem 0.65rem;border-radius:999rem;font-size:0.72rem;font-family:var(--font-brand);white-space:nowrap;background:${bg};color:#fff;border:none;line-height:1.4;`
+  }
+
+  function updateGallery() {
+    const hasFilters = selectedTypes.size > 0 || selectedTags.size > 0
+    filterActions.style.display = hasFilters ? 'flex' : 'none'
+
+    const items = gallery.querySelectorAll<HTMLLIElement>('li')
+    items.forEach(li => {
+      const cardType = li.dataset.type ?? ''
+      const cardTags = (li.dataset.tags ?? '').split(',').filter(Boolean)
+
+      const typeMatch = selectedTypes.size === 0 || selectedTypes.has(cardType)
+      const tagMatch =
+        selectedTags.size === 0 ||
+        [...selectedTags].some(t => cardTags.includes(t))
+      const visible = typeMatch && tagMatch
+
+      if (visible) {
+        li.removeAttribute('data-hidden')
+      } else {
+        li.setAttribute('data-hidden', '')
+      }
+
+      const container = li.querySelector<HTMLDivElement>('.active-filters')
+      if (!container) return
+      container.innerHTML = ''
+
+      if (visible && hasFilters) {
+        if (selectedTypes.has(cardType)) {
+          const pill = document.createElement('span')
+          pill.setAttribute('style', pillStyle(cardType))
+          pill.textContent = cardType
+          container.appendChild(pill)
+        }
+        selectedTags.forEach(tag => {
+          if (cardTags.includes(tag)) {
+            const pill = document.createElement('span')
+            pill.setAttribute('style', pillStyle(tag))
+            pill.textContent = tag
+            container.appendChild(pill)
+          }
+        })
+      }
+    })
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('.filter-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filterType = btn.dataset.filterType!
+      const value = btn.dataset.value!
+      const set = filterType === 'type' ? selectedTypes : selectedTags
+      const active = btn.getAttribute('aria-pressed') === 'true'
+
+      if (active) {
+        set.delete(value)
+        btn.setAttribute('aria-pressed', 'false')
+      } else {
+        set.add(value)
+        btn.setAttribute('aria-pressed', 'true')
+      }
+
+      updateGallery()
+    })
+  })
+
+  clearBtn.addEventListener('click', () => {
+    selectedTypes.clear()
+    selectedTags.clear()
+    document
+      .querySelectorAll<HTMLButtonElement>('.filter-pill')
+      .forEach(btn => btn.setAttribute('aria-pressed', 'false'))
+    updateGallery()
+  })
+</script>
