@@ -20,13 +20,17 @@ const { align = 'center', tagline, title } = Astro.props
   .header {
     font-size: var(--text-lg);
     text-align: center;
-    margin-top: 12rem;
+    margin-top: 1rem;
+    z-index: 2;
+    position: relative;
+    padding: 2rem;
   }
 
   .title,
   .tagline {
     max-width: 37ch;
     margin-inline: auto;
+    color: #f1e8e1;
   }
 
   .title {
@@ -35,7 +39,6 @@ const { align = 'center', tagline, title } = Astro.props
 
   .tagline {
     font-family: 'Google Sans flex', sans-serif;
-    color: #f3f4f7;
   }
 
   @media (min-width: 50em) {
