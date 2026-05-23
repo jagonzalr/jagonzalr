@@ -4,5 +4,24 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
 <BaseLayout title='Not Found' description='404 Error — this page was not found'>
-  <Header title='Page Not Found' tagline='Not found' />
+  <div class='not-found-container'>
+    <div
+      style={{
+        backgroundColor: '#090b11',
+        borderRadius: '1rem',
+        padding: '2rem'
+      }}
+    >
+      <Header title='Page Not Found' tagline='Not found' />
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  .not-found-container {
+    height: calc(100vh - 11rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
