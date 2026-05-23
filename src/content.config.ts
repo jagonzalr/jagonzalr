@@ -8,6 +8,7 @@ export const collections = {
 		schema: z.object({
 			title: z.string(),
 			description: z.string(),
+			type: z.enum(['SaaS', 'OSS', 'Project']),
 			featured: z.boolean().default(false).optional(),
 			publishDate: z.coerce.date(),
 			tags: z.array(z.string()),

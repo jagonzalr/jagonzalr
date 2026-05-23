@@ -1,5 +1,6 @@
 ---
 title: Transcribe Ninja
+type: SaaS
 publishDate: 2019-10-02 00:00:00
 link: https://transcribeninja.com/
 description: |

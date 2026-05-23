@@ -47,6 +47,12 @@
     var(--accent-dark)
   );
   --gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
+  --gradient-hero: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.75),
+    transparent,
+    transparent
+  );
 
   /* Shadows */
   --shadow-sm:
@@ -103,7 +109,7 @@
   --accent-subtle-overlay: #2c475a;
   --accent-text-over: var(--gray-0);
 
-  --link-color: var(--accent-dark);
+  --link-color: #f1e8e1;
 
   --gradient-stop-1: #4c11c6;
   --gradient-subtle: linear-gradient(
@@ -118,7 +124,12 @@
     var(--accent-light)
   );
   --gradient-stroke: linear-gradient(180deg, var(--gray-600), var(--gray-800));
-
+  --gradient-hero: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.65),
+    rgba(54, 48, 48, 0.15),
+    transparent
+  );
   --shadow-sm:
     0px 6px 3px rgba(255, 255, 255, 0.01),
     0px 4px 2px rgba(255, 255, 255, 0.01),

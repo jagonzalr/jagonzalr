@@ -1,5 +1,6 @@
 ---
 title: Open Source Licenses
+type: OSS
 publishDate: 2019-10-02 00:00:00
 link: https://opensourcelicences.jagonzalr.com/
 description: |
