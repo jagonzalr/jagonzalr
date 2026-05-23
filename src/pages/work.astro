@@ -383,14 +383,15 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 1.5rem;
+    justify-items: center;
     margin: 0;
     padding: 0;
   }
 
   .gallery > li {
     list-style-type: none;
-    flex-grow: 1;
     height: 20rem;
+    width: 100%;
     max-width: 45rem;
   }
 
@@ -407,12 +408,6 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
 </style>
 
 <script>
-  const selectedTypes = new Set<string>()
-  const selectedTags = new Set<string>()
-
-  const gallery = document.getElementById('project-gallery')!
-  const clearBtn = document.getElementById('clear-filters') as HTMLButtonElement
-
   // ── Pill colour map for card overlays ──
   const TYPE_COLORS: Record<string, string> = {
     SaaS: '#d4cfc8',
@@ -436,149 +431,164 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
     ].join(';')
   }
 
-  // ── Update gallery visibility + overlay pills ──
-  function updateGallery() {
-    const hasFilters = selectedTypes.size > 0 || selectedTags.size > 0
-    clearBtn.style.display = hasFilters ? 'inline' : 'none'
-
-    gallery.querySelectorAll<HTMLLIElement>('li').forEach(li => {
-      const cardType = li.dataset.type ?? ''
-      const cardTags = (li.dataset.tags ?? '').split(',').filter(Boolean)
-
-      const typeMatch = selectedTypes.size === 0 || selectedTypes.has(cardType)
-      const tagMatch =
-        selectedTags.size === 0 ||
-        [...selectedTags].some(t => cardTags.includes(t))
-      const visible = typeMatch && tagMatch
-
-      li.toggleAttribute('data-hidden', !visible)
-
-      const container = li.querySelector<HTMLElement>('.active-filters')
-      if (!container) return
-      container.innerHTML = ''
-
-      if (visible && hasFilters) {
-        if (selectedTypes.has(cardType)) {
-          const pill = document.createElement('span')
-          pill.setAttribute('style', overlayPillStyle(cardType))
-          pill.textContent = cardType
-          container.appendChild(pill)
-        }
-        selectedTags.forEach(tag => {
-          if (cardTags.includes(tag)) {
-            const pill = document.createElement('span')
-            pill.setAttribute('style', overlayPillStyle(tag))
-            pill.textContent = tag
-            container.appendChild(pill)
-          }
-        })
-      }
-    })
-  }
-
-  // ── Dropdown open / close ──
-  function closeAll(except?: Element) {
-    document
-      .querySelectorAll<HTMLElement>('.dropdown[data-open]')
-      .forEach(d => {
-        if (d !== except) d.removeAttribute('data-open')
-      })
-  }
-
-  document.querySelectorAll<HTMLElement>('.dropdown').forEach(dropdown => {
-    const trigger =
-      dropdown.querySelector<HTMLButtonElement>('.dropdown-trigger')!
-
-    trigger.addEventListener('click', e => {
-      e.stopPropagation()
-      const isOpen = dropdown.hasAttribute('data-open')
-      closeAll(dropdown)
-      dropdown.toggleAttribute('data-open', !isOpen)
-      trigger.setAttribute('aria-expanded', String(!isOpen))
-    })
-  })
-
-  document.addEventListener('click', () => closeAll())
-
-  document.querySelectorAll<HTMLElement>('.dropdown-panel').forEach(panel => {
-    panel.addEventListener('click', e => e.stopPropagation())
-  })
-
-  // ── Checkbox changes ──
-  function syncDropdownState(dropdown: HTMLElement) {
-    const checked = dropdown.querySelectorAll<HTMLInputElement>(
-      'input[type="checkbox"]:checked'
-    )
-    const countEl = dropdown.querySelector<HTMLElement>('.dropdown-count')!
-    if (checked.length > 0) {
-      countEl.textContent = String(checked.length)
-      countEl.style.display = 'inline-flex'
-      dropdown.setAttribute('data-active', '')
-    } else {
-      countEl.style.display = 'none'
-      dropdown.removeAttribute('data-active')
-    }
-  }
-
-  document
-    .querySelectorAll<HTMLInputElement>('input[data-filter-type]')
-    .forEach(input => {
-      input.addEventListener('change', () => {
-        const filterType = input.dataset.filterType!
-        const set = filterType === 'type' ? selectedTypes : selectedTags
-
-        if (input.checked) {
-          set.add(input.value)
-        } else {
-          set.delete(input.value)
-        }
-
-        const dropdown = input.closest<HTMLElement>('.dropdown')!
-        syncDropdownState(dropdown)
-        updateGallery()
-      })
-    })
-
-  // ── Clear all ──
-  clearBtn.addEventListener('click', () => {
-    selectedTypes.clear()
-    selectedTags.clear()
-
-    document
-      .querySelectorAll<HTMLInputElement>('input[data-filter-type]')
-      .forEach(input => {
-        input.checked = false
-      })
-
-    document.querySelectorAll<HTMLElement>('.dropdown').forEach(d => {
-      syncDropdownState(d)
-    })
-
-    updateGallery()
-  })
-
-  // ── Restore scroll + re-attach project link listeners after every ViewTransition ──
-  // Save scroll position BEFORE navigating away from the work page
-  document.addEventListener('astro:before-swap', (e: any) => {
-    // Only save if we're currently on the work page
-    if (window.location.pathname === '/work/' || window.location.pathname === '/work') {
+  // Save scroll position BEFORE navigating away from the work page.
+  // Registered once at module level so it survives across navigations.
+  document.addEventListener('astro:before-swap', () => {
+    if (
+      window.location.pathname === '/work/' ||
+      window.location.pathname === '/work'
+    ) {
       sessionStorage.setItem('work-scroll-y', String(window.scrollY))
     }
   })
 
-  // Restore scroll position AFTER the page has loaded
+  // Re-initialize filters and restore scroll on every page load.
+  // astro:page-load fires on the first load AND after every ViewTransition,
+  // so this is where all DOM queries and event listeners must live — the
+  // module script itself only executes once, meaning any top-level DOM
+  // references become stale after ViewTransitions swap the page DOM.
   document.addEventListener('astro:page-load', () => {
-    if (window.location.pathname === '/work/' || window.location.pathname === '/work') {
-      const savedY = sessionStorage.getItem('work-scroll-y')
-      if (savedY !== null) {
-        // Use double RAF + setTimeout to ensure all layout is complete before scrolling
-        requestAnimationFrame(() => {
-          setTimeout(() => {
-            window.scrollTo({ top: parseInt(savedY, 10), behavior: 'instant' })
-            sessionStorage.removeItem('work-scroll-y')
-          }, 0)
+    if (
+      window.location.pathname !== '/work/' &&
+      window.location.pathname !== '/work'
+    ) return
+
+    const selectedTypes = new Set<string>()
+    const selectedTags = new Set<string>()
+
+    const gallery = document.getElementById('project-gallery')!
+    const clearBtn = document.getElementById('clear-filters') as HTMLButtonElement
+
+    // ── Update gallery visibility + overlay pills ──
+    function updateGallery() {
+      const hasFilters = selectedTypes.size > 0 || selectedTags.size > 0
+      clearBtn.style.display = hasFilters ? 'inline' : 'none'
+
+      gallery.querySelectorAll<HTMLLIElement>('li').forEach(li => {
+        const cardType = li.dataset.type ?? ''
+        const cardTags = (li.dataset.tags ?? '').split(',').filter(Boolean)
+
+        const typeMatch = selectedTypes.size === 0 || selectedTypes.has(cardType)
+        const tagMatch =
+          selectedTags.size === 0 ||
+          [...selectedTags].some(t => cardTags.includes(t))
+        const visible = typeMatch && tagMatch
+
+        li.toggleAttribute('data-hidden', !visible)
+
+        const container = li.querySelector<HTMLElement>('.active-filters')
+        if (!container) return
+        container.innerHTML = ''
+
+        if (visible && hasFilters) {
+          if (selectedTypes.has(cardType)) {
+            const pill = document.createElement('span')
+            pill.setAttribute('style', overlayPillStyle(cardType))
+            pill.textContent = cardType
+            container.appendChild(pill)
+          }
+          selectedTags.forEach(tag => {
+            if (cardTags.includes(tag)) {
+              const pill = document.createElement('span')
+              pill.setAttribute('style', overlayPillStyle(tag))
+              pill.textContent = tag
+              container.appendChild(pill)
+            }
+          })
+        }
+      })
+    }
+
+    // ── Dropdown open / close ──
+    function closeAll(except?: Element) {
+      document
+        .querySelectorAll<HTMLElement>('.dropdown[data-open]')
+        .forEach(d => {
+          if (d !== except) d.removeAttribute('data-open')
         })
+    }
+
+    document.querySelectorAll<HTMLElement>('.dropdown').forEach(dropdown => {
+      const trigger =
+        dropdown.querySelector<HTMLButtonElement>('.dropdown-trigger')!
+
+      trigger.addEventListener('click', e => {
+        e.stopPropagation()
+        const isOpen = dropdown.hasAttribute('data-open')
+        closeAll(dropdown)
+        dropdown.toggleAttribute('data-open', !isOpen)
+        trigger.setAttribute('aria-expanded', String(!isOpen))
+      })
+    })
+
+    document.addEventListener('click', () => closeAll())
+
+    document.querySelectorAll<HTMLElement>('.dropdown-panel').forEach(panel => {
+      panel.addEventListener('click', e => e.stopPropagation())
+    })
+
+    // ── Checkbox changes ──
+    function syncDropdownState(dropdown: HTMLElement) {
+      const checked = dropdown.querySelectorAll<HTMLInputElement>(
+        'input[type="checkbox"]:checked'
+      )
+      const countEl = dropdown.querySelector<HTMLElement>('.dropdown-count')!
+      if (checked.length > 0) {
+        countEl.textContent = String(checked.length)
+        countEl.style.display = 'inline-flex'
+        dropdown.setAttribute('data-active', '')
+      } else {
+        countEl.style.display = 'none'
+        dropdown.removeAttribute('data-active')
       }
+    }
+
+    document
+      .querySelectorAll<HTMLInputElement>('input[data-filter-type]')
+      .forEach(input => {
+        input.addEventListener('change', () => {
+          const filterType = input.dataset.filterType!
+          const set = filterType === 'type' ? selectedTypes : selectedTags
+
+          if (input.checked) {
+            set.add(input.value)
+          } else {
+            set.delete(input.value)
+          }
+
+          const dropdown = input.closest<HTMLElement>('.dropdown')!
+          syncDropdownState(dropdown)
+          updateGallery()
+        })
+      })
+
+    // ── Clear all ──
+    clearBtn.addEventListener('click', () => {
+      selectedTypes.clear()
+      selectedTags.clear()
+
+      document
+        .querySelectorAll<HTMLInputElement>('input[data-filter-type]')
+        .forEach(input => {
+          input.checked = false
+        })
+
+      document.querySelectorAll<HTMLElement>('.dropdown').forEach(d => {
+        syncDropdownState(d)
+      })
+
+      updateGallery()
+    })
+
+    // ── Restore scroll position ──
+    const savedY = sessionStorage.getItem('work-scroll-y')
+    if (savedY !== null) {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          window.scrollTo({ top: parseInt(savedY, 10), behavior: 'instant' })
+          sessionStorage.removeItem('work-scroll-y')
+        }, 0)
+      })
     }
   })
 </script>
