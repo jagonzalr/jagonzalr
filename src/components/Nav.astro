@@ -2,6 +2,8 @@
 import Icon from './Icon.astro'
 import type { iconPaths } from './IconPaths'
 import ThemeToggle from './ThemeToggle.astro'
+import MediumIcon from '../images/medium-icon.svg'
+import ProductHuntIcon from '../images/product-hunt-icon.svg'
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
@@ -13,7 +15,7 @@ const textLinks: { label: string; href: string }[] = [
 const iconLinks: {
   label: string
   href: string
-  icon: keyof typeof iconPaths | 'ph'
+  icon: keyof typeof iconPaths
 }[] = [
   {
     label: 'LinkedIn',
@@ -24,11 +26,6 @@ const iconLinks: {
     label: 'GitHub',
     href: 'https://github.com/jagonzalr',
     icon: 'github-logo'
-  },
-  {
-    label: 'Product Hunt',
-    href: 'https://www.producthunt.com/@jagonzalr',
-    icon: 'ph'
   }
 ]
 
@@ -76,20 +73,6 @@ const isCurrentPage = (href: string) => {
       }
     </ul>
   </noscript>
-  <!-- <noscript>
-    <div class='menu-footer'>
-      <div class='socials'>
-        {
-          iconLinks.map(({ href, icon, label }) => (
-            <a href={href} class='social'>
-              <span class='sr-only'>{label}</span>
-              <Icon icon={icon} />
-            </a>
-          ))
-        }
-      </div>
-    </div>
-  </noscript> -->
   <div id='menu-content' hidden>
     <ul class='nav-items'>
       {
@@ -108,30 +91,19 @@ const isCurrentPage = (href: string) => {
     </ul>
     <div class='menu-footer'>
       <div class='socials'>
+        <a href="https://blog.jagonzalr.com/" target="_blank" rel="noreferrer" class='social' style={{ color: 'var(--link-color)'}}>
+          <span class='sr-only'>Medium</span>
+          <MediumIcon fill="currentColor"  width={22} height={22} />
+        </a>
+         <a href="https://www.producthunt.com/@jagonzalr" target="_blank" rel="noreferrer" class='social' style={{ color: 'var(--link-color)'}}>
+          <span class='sr-only'>Product Hunt</span>
+          <ProductHuntIcon fill="currentColor"  width={24} height={24} />
+        </a>
         {
           iconLinks.map(({ href, icon, label }) => (
-            <a href={href} class='social'>
+            <a href={href} class='social' target="_blank" rel="noreferrer" >
               <span class='sr-only'>{label}</span>
-              {icon === 'ph' ? (
-                <div
-                  style={{
-                    backgroundColor: 'var(--link-color)',
-                    borderRadius: '1rem',
-                    color: 'var(--gray-999)',
-                    fontFamily: 'Google Sans Flex, sans-serif',
-                    fontWeight: 'bold',
-                    fontSize: '0.7em',
-                    height: '1.2em',
-                    width: '1.2em',
-                    textAlign: 'center',
-                    lineHeight: '1.25em'
-                  }}
-                >
-                  <p>P</p>
-                </div>
-              ) : (
-                <Icon icon={icon} />
-              )}
+              <Icon icon={icon} />
             </a>
           ))
         }
@@ -289,13 +261,13 @@ const isCurrentPage = (href: string) => {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.625rem;
+    gap: 0.3rem;
     font-size: var(--icon-size);
   }
 
   .social {
     display: flex;
-    padding: var(--icon-padding);
+    padding: 0.3rem;
     text-decoration: none;
     transition: color var(--theme-transition);
   }
