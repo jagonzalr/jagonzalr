@@ -1,0 +1,594 @@
+---
+import { getCollection } from 'astro:content'
+import ContactCTA from '../components/ContactCTA.astro'
+import PortfolioPreview from '../components/PortfolioPreview.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const projects = (await getCollection('work')).filter(p => p.data.enabled).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+)
+
+const allTags = [...new Set(projects.flatMap(p => p.data.tags))].sort()
+const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
+---
+
+<BaseLayout
+  title='My Work | Jose Antonio González Rodríguez'
+  description="Learn about Jose Antonio González Rodríguez's most recent projects"
+>
+  <div class='stack gap-20'>
+    <main class='wrapper stack gap-8'>
+      <div>
+        <div
+          class='background-image-projects'
+          style={{ position: 'relative', marginTop: '10rem' }}
+        >
+          <div class='decor-frame'></div>
+          <div class='decor-frame-alt'></div>
+          <header class='section-header stack'>
+            <h3>My Work</h3>
+            <p>
+              See my recent projects below to get an idea of my experience and
+              interests.
+            </p>
+          </header>
+        </div>
+      </div>
+
+      <div class='filters'>
+        <div class='filter-dropdowns'>
+          <!-- Type dropdown -->
+          <div class='dropdown' id='type-dropdown'>
+            <button
+              class='dropdown-trigger'
+              aria-expanded='false'
+              aria-haspopup='listbox'
+            >
+              <span class='dropdown-label'>Classification</span>
+              <span class='dropdown-count' aria-hidden='true'></span>
+              <svg
+                class='dropdown-chevron'
+                width='12'
+                height='12'
+                viewBox='0 0 12 12'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  d='M2 4L6 8L10 4'
+                  stroke='currentColor'
+                  stroke-width='1.5'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'></path>
+              </svg>
+            </button>
+            <div
+              class='dropdown-panel'
+              role='listbox'
+              aria-multiselectable='true'
+            >
+              {
+                allTypes.map(type => (
+                  <label class='dropdown-option'>
+                    <input
+                      type='checkbox'
+                      value={type}
+                      data-filter-type='type'
+                    />
+                    <span>{type}</span>
+                  </label>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Tags dropdown -->
+          <div class='dropdown' id='tags-dropdown'>
+            <button
+              class='dropdown-trigger'
+              aria-expanded='false'
+              aria-haspopup='listbox'
+            >
+              <span class='dropdown-label'>Technologies</span>
+              <span class='dropdown-count' aria-hidden='true'></span>
+              <svg
+                class='dropdown-chevron'
+                width='12'
+                height='12'
+                viewBox='0 0 12 12'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  d='M2 4L6 8L10 4'
+                  stroke='currentColor'
+                  stroke-width='1.5'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'></path>
+              </svg>
+            </button>
+            <div
+              class='dropdown-panel'
+              role='listbox'
+              aria-multiselectable='true'
+            >
+              {
+                allTags.map(tag => (
+                  <label class='dropdown-option'>
+                    <input type='checkbox' value={tag} data-filter-type='tag' />
+                    <span>{tag}</span>
+                  </label>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
+        <button class='clear-btn' id='clear-filters' style='display:none'>
+          Clear filters
+        </button>
+      </div>
+
+      <ul class='gallery' id='project-gallery'>
+        {
+          projects.map(project => (
+            <li
+              data-tags={project.data.tags.join(',')}
+              data-type={project.data.type}
+            >
+              <PortfolioPreview project={project} />
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+
+    <!-- <ContactCTA /> -->
+  </div>
+</BaseLayout>
+
+<style>
+  .wrapper {
+    max-width: 100rem;
+    padding-inline: 5%;
+  }
+
+  /* ── Hero header ── */
+  .background-image-projects {
+    min-height: 20rem;
+    background: var(--bg-image-projects) center center;
+    background-size: cover;
+  }
+
+  .decor-frame {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: -20px;
+    bottom: 0;
+    border: 3px solid #c4a06e;
+  }
+
+  .decor-frame-alt {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: -20px;
+    bottom: -20px;
+    border: 3px solid #c4a06e;
+  }
+
+  .section-header {
+    position: absolute;
+    bottom: 5%;
+    justify-self: center;
+    text-align: center;
+    max-width: 50ch;
+    font-size: var(--text-md);
+    padding: 1rem;
+  }
+
+  .section-header > h3 {
+    color: #e2d7c1;
+    text-shadow: 3px 3px 8px black;
+    font-size: var(--text-5xl);
+  }
+
+  .section-header > p {
+    color: #e2d7c1;
+    text-shadow: 3px 3px 8px black;
+    font-size: var(--text-xl);
+    line-height: 1.2;
+    margin-top: 1rem;
+    font-family: 'Google Sans Flex', serif;
+  }
+
+  @media (min-width: 50em) {
+    .background-image-projects {
+      min-height: 30rem;
+    }
+
+    .section-header {
+      bottom: 15%;
+      padding: 3rem;
+    }
+  }
+
+  /* ── Filters ── */
+  .filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .filter-dropdowns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--gray-700);
+    border-radius: 999rem;
+    background: transparent;
+    color: var(--gray-300);
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: var(--text-sm);
+    cursor: pointer;
+    transition:
+      border-color 0.15s,
+      color 0.15s;
+    white-space: nowrap;
+  }
+
+  .dropdown-trigger:hover,
+  .dropdown[data-open] .dropdown-trigger {
+    border-color: #c4a06e;
+    color: #c4a06e;
+  }
+
+  .dropdown[data-active] .dropdown-trigger {
+    border-color: #c4a06e;
+    background: rgba(196, 160, 110, 0.15);
+    color: #c4a06e;
+  }
+
+  .dropdown-label {
+    font-family: 'Google Sans Flex', sans-serif;
+  }
+
+  .dropdown-count {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.2rem;
+    height: 1.2rem;
+    padding: 0 0.25rem;
+    border-radius: 999rem;
+    background: #c4a06e;
+    color: #15232b;
+    font-size: 0.65rem;
+    font-weight: 700;
+    font-family: 'Google Sans Flex', sans-serif;
+  }
+
+  .dropdown-chevron {
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .dropdown[data-open] .dropdown-chevron {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.4rem);
+    left: 0;
+    z-index: 10;
+    min-width: 13rem;
+    max-height: 18rem;
+    overflow-y: auto;
+    background: var(--gray-900);
+    border: 1px solid #c4a06e;
+    border-radius: 0.75rem;
+    padding: 0.4rem 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  .dropdown[data-open] .dropdown-panel {
+    display: block;
+  }
+
+  .dropdown-option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 0.9rem;
+    cursor: pointer;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: var(--text-sm);
+    color: var(--gray-300);
+    transition:
+      background 0.1s,
+      color 0.1s;
+  }
+
+  .dropdown-option:hover {
+    background: rgba(196, 160, 110, 0.12);
+    color: var(--gray-200);
+  }
+
+  .dropdown-option input[type='checkbox'] {
+    appearance: none;
+    width: 0.95rem;
+    height: 0.95rem;
+    border: 1px solid var(--gray-600);
+    border-radius: 0.2rem;
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    transition:
+      background 0.1s,
+      border-color 0.1s;
+  }
+
+  .dropdown-option input[type='checkbox']:checked {
+    background: #c4a06e;
+    border-color: #c4a06e;
+  }
+
+  .dropdown-option input[type='checkbox']:checked::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 3px;
+    width: 4px;
+    height: 7px;
+    border: 2px solid #15232b;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+
+  .clear-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--gray-400);
+    font-size: var(--text-sm);
+    font-family: 'Google Sans Flex', sans-serif;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    padding: 0;
+  }
+
+  .clear-btn:hover {
+    color: #e2d7c1;
+  }
+
+  /* ── Gallery ── */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .gallery > li {
+    list-style-type: none;
+    height: 20rem;
+    width: 100%;
+    max-width: 45rem;
+  }
+
+  .gallery > li[data-hidden] {
+    display: none;
+  }
+
+  @media (min-width: 60em) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+</style>
+
+<script>
+  // ── Pill colour map for card overlays ──
+  const TYPE_COLORS: Record<string, string> = {
+    SaaS: '#d4cfc8',
+    OSS: '#d4cfc8',
+    Project: '#d4cfc8'
+  }
+
+  function overlayPillStyle(label: string): string {
+    const bg = TYPE_COLORS[label] ?? '#c4a06e'
+    return [
+      'display:inline-flex',
+      'align-items:center',
+      `padding:0.2rem 0.65rem`,
+      'border-radius:999rem',
+      'font-size:0.7rem',
+      "font-family:'Google Sans Flex',sans-serif",
+      'white-space:nowrap',
+      `background:${bg}`,
+      'color:#15232b',
+      'line-height:1.4'
+    ].join(';')
+  }
+
+  // Save scroll position BEFORE navigating away from the work page.
+  // Registered once at module level so it survives across navigations.
+  document.addEventListener('astro:before-swap', () => {
+    if (
+      window.location.pathname === '/work/' ||
+      window.location.pathname === '/work'
+    ) {
+      sessionStorage.setItem('work-scroll-y', String(window.scrollY))
+    }
+  })
+
+  // Re-initialize filters and restore scroll on every page load.
+  // astro:page-load fires on the first load AND after every ViewTransition,
+  // so this is where all DOM queries and event listeners must live — the
+  // module script itself only executes once, meaning any top-level DOM
+  // references become stale after ViewTransitions swap the page DOM.
+  document.addEventListener('astro:page-load', () => {
+    if (
+      window.location.pathname !== '/work/' &&
+      window.location.pathname !== '/work'
+    ) return
+
+    const selectedTypes = new Set<string>()
+    const selectedTags = new Set<string>()
+
+    const gallery = document.getElementById('project-gallery')!
+    const clearBtn = document.getElementById('clear-filters') as HTMLButtonElement
+
+    // ── Update gallery visibility + overlay pills ──
+    function updateGallery() {
+      const hasFilters = selectedTypes.size > 0 || selectedTags.size > 0
+      clearBtn.style.display = hasFilters ? 'inline' : 'none'
+
+      gallery.querySelectorAll<HTMLLIElement>('li').forEach(li => {
+        const cardType = li.dataset.type ?? ''
+        const cardTags = (li.dataset.tags ?? '').split(',').filter(Boolean)
+
+        const typeMatch = selectedTypes.size === 0 || selectedTypes.has(cardType)
+        const tagMatch =
+          selectedTags.size === 0 ||
+          [...selectedTags].some(t => cardTags.includes(t))
+        const visible = typeMatch && tagMatch
+
+        li.toggleAttribute('data-hidden', !visible)
+
+        const container = li.querySelector<HTMLElement>('.active-filters')
+        if (!container) return
+        container.innerHTML = ''
+
+        if (visible && hasFilters) {
+          if (selectedTypes.has(cardType)) {
+            const pill = document.createElement('span')
+            pill.setAttribute('style', overlayPillStyle(cardType))
+            pill.textContent = cardType
+            container.appendChild(pill)
+          }
+          selectedTags.forEach(tag => {
+            if (cardTags.includes(tag)) {
+              const pill = document.createElement('span')
+              pill.setAttribute('style', overlayPillStyle(tag))
+              pill.textContent = tag
+              container.appendChild(pill)
+            }
+          })
+        }
+      })
+    }
+
+    // ── Dropdown open / close ──
+    function closeAll(except?: Element) {
+      document
+        .querySelectorAll<HTMLElement>('.dropdown[data-open]')
+        .forEach(d => {
+          if (d !== except) d.removeAttribute('data-open')
+        })
+    }
+
+    document.querySelectorAll<HTMLElement>('.dropdown').forEach(dropdown => {
+      const trigger =
+        dropdown.querySelector<HTMLButtonElement>('.dropdown-trigger')!
+
+      trigger.addEventListener('click', e => {
+        e.stopPropagation()
+        const isOpen = dropdown.hasAttribute('data-open')
+        closeAll(dropdown)
+        dropdown.toggleAttribute('data-open', !isOpen)
+        trigger.setAttribute('aria-expanded', String(!isOpen))
+      })
+    })
+
+    document.addEventListener('click', () => closeAll())
+
+    document.querySelectorAll<HTMLElement>('.dropdown-panel').forEach(panel => {
+      panel.addEventListener('click', e => e.stopPropagation())
+    })
+
+    // ── Checkbox changes ──
+    function syncDropdownState(dropdown: HTMLElement) {
+      const checked = dropdown.querySelectorAll<HTMLInputElement>(
+        'input[type="checkbox"]:checked'
+      )
+      const countEl = dropdown.querySelector<HTMLElement>('.dropdown-count')!
+      if (checked.length > 0) {
+        countEl.textContent = String(checked.length)
+        countEl.style.display = 'inline-flex'
+        dropdown.setAttribute('data-active', '')
+      } else {
+        countEl.style.display = 'none'
+        dropdown.removeAttribute('data-active')
+      }
+    }
+
+    document
+      .querySelectorAll<HTMLInputElement>('input[data-filter-type]')
+      .forEach(input => {
+        input.addEventListener('change', () => {
+          const filterType = input.dataset.filterType!
+          const set = filterType === 'type' ? selectedTypes : selectedTags
+
+          if (input.checked) {
+            set.add(input.value)
+          } else {
+            set.delete(input.value)
+          }
+
+          const dropdown = input.closest<HTMLElement>('.dropdown')!
+          syncDropdownState(dropdown)
+          updateGallery()
+        })
+      })
+
+    // ── Clear all ──
+    clearBtn.addEventListener('click', () => {
+      selectedTypes.clear()
+      selectedTags.clear()
+
+      document
+        .querySelectorAll<HTMLInputElement>('input[data-filter-type]')
+        .forEach(input => {
+          input.checked = false
+        })
+
+      document.querySelectorAll<HTMLElement>('.dropdown').forEach(d => {
+        syncDropdownState(d)
+      })
+
+      updateGallery()
+    })
+
+    // ── Restore scroll position ──
+    const savedY = sessionStorage.getItem('work-scroll-y')
+    if (savedY !== null) {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          window.scrollTo({ top: parseInt(savedY, 10), behavior: 'instant' })
+          sessionStorage.removeItem('work-scroll-y')
+        }, 0)
+      })
+    }
+  })
+</script>

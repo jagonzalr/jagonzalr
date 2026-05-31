@@ -1,0 +1,28 @@
+---
+interface Props {
+  variant?: 'default' | 'type'
+}
+
+const { variant = 'default' } = Astro.props
+---
+
+<div class={`pill pill--${variant}`}><slot /></div>
+
+<style>
+  .pill {
+    display: flex;
+    padding: 0.3rem 1rem;
+    gap: 0.5rem;
+    color: var(--accent-text-over);
+    background-color: #795f42;
+    border-radius: 999rem;
+    font-size: var(--text-md);
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+
+  .pill--type {
+    color: #fff;
+    background: linear-gradient(var(--accent-dark));
+  }
+</style>

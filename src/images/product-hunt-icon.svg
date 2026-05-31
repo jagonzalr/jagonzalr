@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-416.666667,-416.666667)">
+        <g id="Page-1" serif:id="Page 1" transform="matrix(4.166667,0,0,4.166667,0,0)">
+            <rect x="0" y="0" width="440" height="440" style="fill:none;"/>
+            <g transform="matrix(0,-1,-1,0,220,100)">
+                <g id="Layer-1" serif:id="Layer 1">
+                    <path d="M-120,-120C-186.274,-120 -240,-66.274 -240,0C-240,66.274 -186.274,120 -120,120C-53.726,120 0,66.274 0,0C0,-66.274 -53.726,-120 -120,-120ZM-60,-16L-60.001,-16L-60,42L-180,42L-180,18L-144.001,18L-144.001,-16L-144,-16C-144,-39.196 -125.196,-58 -102,-58C-78.804,-58 -60,-39.196 -60,-16ZM-120,-16L-120.001,-16L-120.001,18L-84.001,18L-84.001,-16L-84,-16C-84,-25.941 -92.059,-34 -102,-34C-111.941,-34 -120,-25.941 -120,-16Z"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

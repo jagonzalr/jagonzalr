@@ -1,0 +1,62 @@
+---
+interface Props {
+  title: string
+  tagline?: string
+  align?: 'start' | 'center'
+}
+
+const { align = 'center', tagline, title } = Astro.props
+---
+
+<div class:list={['header stack gap-4', align]}>
+  <div class='stack gap-2'>
+    <h1 class='title'>{title}</h1>
+    {tagline && <p class='tagline'>{tagline}</p>}
+  </div>
+  <slot />
+</div>
+
+<style>
+  .header {
+    font-size: var(--text-lg);
+    text-align: center;
+    margin-top: 1rem;
+    z-index: 2;
+    position: relative;
+    padding: 2rem;
+  }
+
+  .title,
+  .tagline {
+    max-width: 37ch;
+    margin-inline: auto;
+    color: #f1e8e1;
+  }
+
+  .title {
+    font-size: var(--text-3xl);
+  }
+
+  .tagline {
+    font-family: 'Google Sans flex', sans-serif;
+  }
+
+  @media (min-width: 50em) {
+    .header {
+      font-size: var(--text-xl);
+    }
+
+    .start {
+      text-align: start;
+    }
+
+    .start .title,
+    .start .tagline {
+      margin-inline: unset;
+    }
+
+    .title {
+      font-size: var(--text-5xl);
+    }
+  }
+</style>

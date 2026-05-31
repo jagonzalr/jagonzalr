@@ -1,0 +1,21 @@
+import { defineCollection, z } from 'astro:content'
+import { glob } from 'astro/loaders'
+
+export const collections = {
+  work: defineCollection({
+    // Load Markdown files in the src/content/work directory.
+    loader: glob({ base: './src/content/work', pattern: '**/*.md' }),
+    schema: z.object({
+      title: z.string(),
+      description: z.string(),
+      type: z.enum(['SaaS', 'OSS', 'Project']),
+      featured: z.boolean().default(false).optional(),
+      enabled: z.boolean().default(false).optional(),
+      publishDate: z.coerce.date(),
+      tags: z.array(z.string()),
+      img: z.string().optional(),
+      img_alt: z.string().optional(),
+      link: z.string().optional()
+    })
+  })
+}
