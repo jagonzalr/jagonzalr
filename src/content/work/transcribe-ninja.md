@@ -6,9 +6,13 @@ link: https://transcribeninja.com/
 description: |
   Create AI-generated transcripts in minutes.
 tags:
+  - AWS Lambda
   - AWS Transcribe
   - AWS Translate
   - React
+  - Serverless
+enabled: true
+featured: true
 ---
 
 Transcribe Ninja uses the latest AI technology on speech recognition.

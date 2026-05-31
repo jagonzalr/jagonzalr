@@ -1,7 +1,6 @@
 ---
 title: CosyNums
 type: SaaS
-featured: true
 publishDate: 2020-03-02 00:00:00
 link: https://cosynums.com/
 img: /assets/cosynums-screenshot.png
@@ -9,11 +8,14 @@ img_alt: A screenshot from the CosyNums recipe planner app, it shows the landing
 description: |
   Your favourite recipes in one place.
 tags:
-  - TypeScript
-  - Terraform as IaC
   - AWS Lambda
   - React
+  - Serverless
   - Tailwind
+  - Terraform
+  - TypeScript
+enabled: true
+featured: true
 ---
 
 Save recipes to your digital cookbook, plan your upcoming meals and create grocery lists.

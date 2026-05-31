@@ -4,7 +4,7 @@ import ContactCTA from '../components/ContactCTA.astro'
 import PortfolioPreview from '../components/PortfolioPreview.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 
-const projects = (await getCollection('work')).sort(
+const projects = (await getCollection('work')).filter(p => p.data.enabled).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 )
 

@@ -6,10 +6,12 @@ link: https://npmpopularity.jagonzalr.com/
 description: |
   The most popular NPM packages.
 tags:
-  - AWS Lambda in Go
-  - Terraform infrastructure
+  - AWS Lambda
+  - Go
+  - Javascript
+  - Terraform
   - React
-  - Redux-Toolkit
+  - Redux Toolkit
 ---
 
 Technologies used were AWS Lambda in Go and Terraform for infrastructure.
