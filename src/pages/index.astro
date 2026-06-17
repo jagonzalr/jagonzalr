@@ -33,7 +33,13 @@ const projects = (await getCollection('work'))
       <section>
         <div class='featured-grid'>
           <!-- Header -->
-          <div style={{ gridRow: 'span 2', margin: '0 1.5rem 0.5rem' }}>
+          <div
+            style={{
+              gridRow: 'span 2',
+              margin: '0 1.5rem 0.5rem',
+              minWidth: '0'
+            }}
+          >
             <div
               class='background-image-featured'
               style={{ position: 'relative' }}
@@ -137,27 +143,6 @@ const projects = (await getCollection('work'))
       margin: 0 auto;
     }
 
-    @media (min-width: 50em) {
-      .featured-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(3, 1fr);
-        gap: 1.5rem;
-      }
-
-      .roles {
-        margin-top: 0.5rem;
-        display: flex;
-        gap: 0.5rem;
-      }
-
-      .hero img {
-        aspect-ratio: 3 / 4;
-        border-radius: 4.5rem;
-        object-fit: cover;
-      }
-    }
-
-    /* ====================================================== */
     .background-image {
       min-height: 20rem;
       height: 100vh;
@@ -195,7 +180,7 @@ const projects = (await getCollection('work'))
     .section-header > h3 {
       color: #e2d7c1;
       text-shadow: 3px 3px 8px black;
-      font-size: var(--text-5xl);
+      font-size: var(--text-4xl);
     }
 
     .section-header > p {
@@ -210,17 +195,37 @@ const projects = (await getCollection('work'))
     }
 
     @media (min-width: 50em) {
+      .featured-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .roles {
+        margin-top: 0.5rem;
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .hero img {
+        aspect-ratio: 3 / 4;
+        border-radius: 4.5rem;
+        object-fit: cover;
+      }
+
       .section-header {
         grid-area: header;
         font-size: var(--text-lg);
       }
 
-      .section-header h3 {
-        font-size: var(--text-5xl);
-      }
-
       .cta {
         grid-area: cta;
+      }
+    }
+
+    @media (min-width: 30em) {
+      .section-header h3 {
+        font-size: var(--text-5xl);
       }
     }
 

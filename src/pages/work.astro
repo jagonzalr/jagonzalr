@@ -4,9 +4,9 @@ import ContactCTA from '../components/ContactCTA.astro'
 import PortfolioPreview from '../components/PortfolioPreview.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 
-const projects = (await getCollection('work')).filter(p => p.data.enabled).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-)
+const projects = (await getCollection('work'))
+  .filter(p => p.data.enabled)
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
 
 const allTags = [...new Set(projects.flatMap(p => p.data.tags))].sort()
 const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
@@ -21,7 +21,7 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
       <div>
         <div
           class='background-image-projects'
-          style={{ position: 'relative', marginTop: '10rem' }}
+          style={{ position: 'relative', margin: '10rem 0.5rem 0' }}
         >
           <div class='decor-frame'></div>
           <div class='decor-frame-alt'></div>
@@ -191,7 +191,7 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
   .section-header > h3 {
     color: #e2d7c1;
     text-shadow: 3px 3px 8px black;
-    font-size: var(--text-5xl);
+    font-size: var(--text-4xl);
   }
 
   .section-header > p {
@@ -211,6 +211,10 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
     .section-header {
       bottom: 15%;
       padding: 3rem;
+    }
+
+    .section-header > h3 {
+      font-size: var(--text-5xl);
     }
   }
 
@@ -451,13 +455,16 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
     if (
       window.location.pathname !== '/work/' &&
       window.location.pathname !== '/work'
-    ) return
+    )
+      return
 
     const selectedTypes = new Set<string>()
     const selectedTags = new Set<string>()
 
     const gallery = document.getElementById('project-gallery')!
-    const clearBtn = document.getElementById('clear-filters') as HTMLButtonElement
+    const clearBtn = document.getElementById(
+      'clear-filters'
+    ) as HTMLButtonElement
 
     // ── Update gallery visibility + overlay pills ──
     function updateGallery() {
@@ -468,7 +475,8 @@ const allTypes: Array<'SaaS' | 'OSS' | 'Project'> = ['SaaS', 'OSS', 'Project']
         const cardType = li.dataset.type ?? ''
         const cardTags = (li.dataset.tags ?? '').split(',').filter(Boolean)
 
-        const typeMatch = selectedTypes.size === 0 || selectedTypes.has(cardType)
+        const typeMatch =
+          selectedTypes.size === 0 || selectedTypes.has(cardType)
         const tagMatch =
           selectedTags.size === 0 ||
           [...selectedTags].some(t => cardTags.includes(t))
