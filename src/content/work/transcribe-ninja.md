@@ -11,7 +11,7 @@ tags:
   - AWS Translate
   - React
   - Serverless
-enabled: true
+enabled: false
 featured: true
 ---
 
