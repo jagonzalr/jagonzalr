@@ -9,7 +9,7 @@ tags:
   - MCP
   - TypeScript
 enabled: false
-featured: true
+featured: false
 ---
 
 Instead of AI assistants greedily reading entire files and burning context tokens, Knocoph (nok-off) enables structural codebase navigation through deterministic graph queries.

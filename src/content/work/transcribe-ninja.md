@@ -12,7 +12,7 @@ tags:
   - React
   - Serverless
 enabled: false
-featured: true
+featured: false
 ---
 
 Transcribe Ninja uses the latest AI technology on speech recognition.
