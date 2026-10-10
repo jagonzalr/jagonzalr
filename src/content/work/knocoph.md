@@ -8,7 +8,7 @@ description: |
 tags:
   - MCP
   - TypeScript
-enabled: true
+enabled: false
 featured: true
 ---
 
